@@ -7,15 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A7B5F53230DD45ABAFE3A058 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0BA30540514BCD8A9FA92F /* libPods.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		FDDD1DEE17B5E31700D198AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDDD1DED17B5E31700D198AD /* Foundation.framework */; };
 		FDDD1DF317B5E31700D198AD /* WSAPIClient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FDDD1DF217B5E31700D198AD /* WSAPIClient.h */; };
 		FDDD1DF517B5E31700D198AD /* WSAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDD1DF417B5E31700D198AD /* WSAPIClient.m */; };
 		FDDD1DFC17B5E31700D198AD /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDDD1DFB17B5E31700D198AD /* XCTest.framework */; };
 		FDDD1DFD17B5E31700D198AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDDD1DED17B5E31700D198AD /* Foundation.framework */; };
 		FDDD1DFF17B5E31700D198AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDDD1DFE17B5E31700D198AD /* UIKit.framework */; };
-		FDDD1E0217B5E31700D198AD /* libWSAPIClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDDD1DEA17B5E31700D198AD /* libWSAPIClient.a */; };
 		FDDD1E0817B5E31700D198AD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FDDD1E0617B5E31700D198AD /* InfoPlist.strings */; };
 		FDDD1E0A17B5E31700D198AD /* WSAPIClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDD1E0917B5E31700D198AD /* WSAPIClientTests.m */; };
+		FDDD1E1D17B5FB2300D198AD /* WSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDD1E1C17B5FB2300D198AD /* WSUser.m */; };
+		FDDD1E1E17B5FB2300D198AD /* WSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDD1E1C17B5FB2300D198AD /* WSUser.m */; };
+		FDDD1E2117B5FB3800D198AD /* WSLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDD1E2017B5FB3800D198AD /* WSLocation.m */; };
+		FDDD1E2217B5FB3800D198AD /* WSLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDD1E2017B5FB3800D198AD /* WSLocation.m */; };
+		FDDD1E2517B5FB6200D198AD /* WSFeedback.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDD1E2417B5FB6200D198AD /* WSFeedback.m */; };
+		FDDD1E2617B5FB6200D198AD /* WSFeedback.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDD1E2417B5FB6200D198AD /* WSFeedback.m */; };
+		FDDD1E2917B5FB6F00D198AD /* WSFeedbackSubmission.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDD1E2817B5FB6F00D198AD /* WSFeedbackSubmission.m */; };
+		FDDD1E2A17B5FB6F00D198AD /* WSFeedbackSubmission.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDD1E2817B5FB6F00D198AD /* WSFeedbackSubmission.m */; };
+		FDDD1E2D17B5FE0000D198AD /* WSAPIClient+Login.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDD1E2C17B5FE0000D198AD /* WSAPIClient+Login.m */; };
+		FDDD1E2E17B5FE0000D198AD /* WSAPIClient+Login.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDD1E2C17B5FE0000D198AD /* WSAPIClient+Login.m */; };
+		FDDD1E3317B6002500D198AD /* WSAPIClient+Feedback.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDD1E3017B6002500D198AD /* WSAPIClient+Feedback.m */; };
+		FDDD1E3417B6002500D198AD /* WSAPIClient+Message.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDD1E3117B6002500D198AD /* WSAPIClient+Message.m */; };
+		FDDD1E3517B6002500D198AD /* WSAPIClient+User.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDD1E3217B6002500D198AD /* WSAPIClient+User.m */; };
+		FDDD1E3817B614E800D198AD /* WSHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDD1E3717B614E800D198AD /* WSHTTPClient.m */; };
+		FDDD1E3B17B6284300D198AD /* WSHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDD1E3717B614E800D198AD /* WSHTTPClient.m */; };
+		FDDD1E3C17B6288000D198AD /* WSAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDD1DF417B5E31700D198AD /* WSAPIClient.m */; };
+		FDDD1E3D17B6288400D198AD /* WSAPIClient+User.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDD1E3217B6002500D198AD /* WSAPIClient+User.m */; };
+		FDDD1E3E17B6288800D198AD /* WSAPIClient+Feedback.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDD1E3017B6002500D198AD /* WSAPIClient+Feedback.m */; };
+		FDDD1E3F17B6288B00D198AD /* WSAPIClient+Message.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDD1E3117B6002500D198AD /* WSAPIClient+Message.m */; };
+		FDE196B517B648F800644F61 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDE196B417B648F800644F61 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +62,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6F0BA30540514BCD8A9FA92F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CEC81B9FAFB490C988BF9CC /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		FDDD1DEA17B5E31700D198AD /* libWSAPIClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWSAPIClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDDD1DED17B5E31700D198AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FDDD1DF117B5E31700D198AD /* WSAPIClient-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WSAPIClient-Prefix.pch"; sourceTree = "<group>"; };
@@ -53,6 +75,25 @@
 		FDDD1E0517B5E31700D198AD /* WSAPIClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WSAPIClientTests-Info.plist"; sourceTree = "<group>"; };
 		FDDD1E0717B5E31700D198AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FDDD1E0917B5E31700D198AD /* WSAPIClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WSAPIClientTests.m; sourceTree = "<group>"; };
+		FDDD1E1917B5FAEC00D198AD /* WSAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSAPI.h; sourceTree = "<group>"; };
+		FDDD1E1B17B5FB2300D198AD /* WSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSUser.h; sourceTree = "<group>"; };
+		FDDD1E1C17B5FB2300D198AD /* WSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSUser.m; sourceTree = "<group>"; };
+		FDDD1E1F17B5FB3800D198AD /* WSLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSLocation.h; sourceTree = "<group>"; };
+		FDDD1E2017B5FB3800D198AD /* WSLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSLocation.m; sourceTree = "<group>"; };
+		FDDD1E2317B5FB6200D198AD /* WSFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSFeedback.h; sourceTree = "<group>"; };
+		FDDD1E2417B5FB6200D198AD /* WSFeedback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSFeedback.m; sourceTree = "<group>"; };
+		FDDD1E2717B5FB6F00D198AD /* WSFeedbackSubmission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSFeedbackSubmission.h; sourceTree = "<group>"; };
+		FDDD1E2817B5FB6F00D198AD /* WSFeedbackSubmission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSFeedbackSubmission.m; sourceTree = "<group>"; };
+		FDDD1E2C17B5FE0000D198AD /* WSAPIClient+Login.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WSAPIClient+Login.m"; sourceTree = "<group>"; };
+		FDDD1E2F17B5FF2E00D198AD /* WSMessageThreadStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WSMessageThreadStatus.h; sourceTree = "<group>"; };
+		FDDD1E3017B6002500D198AD /* WSAPIClient+Feedback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WSAPIClient+Feedback.m"; sourceTree = "<group>"; };
+		FDDD1E3117B6002500D198AD /* WSAPIClient+Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WSAPIClient+Message.m"; sourceTree = "<group>"; };
+		FDDD1E3217B6002500D198AD /* WSAPIClient+User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WSAPIClient+User.m"; sourceTree = "<group>"; };
+		FDDD1E3617B614E800D198AD /* WSHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSHTTPClient.h; sourceTree = "<group>"; };
+		FDDD1E3717B614E800D198AD /* WSHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSHTTPClient.m; sourceTree = "<group>"; };
+		FDDD1E3917B6213600D198AD /* WSKeychainConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WSKeychainConstants.h; sourceTree = "<group>"; };
+		FDDD1E3A17B6214C00D198AD /* WSAPIErrorConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WSAPIErrorConstants.h; sourceTree = "<group>"; };
+		FDE196B417B648F800644F61 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +102,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDDD1DEE17B5E31700D198AD /* Foundation.framework in Frameworks */,
+				A7B5F53230DD45ABAFE3A058 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,8 +110,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDE196B517B648F800644F61 /* libPods.a in Frameworks */,
 				FDDD1DFC17B5E31700D198AD /* XCTest.framework in Frameworks */,
-				FDDD1E0217B5E31700D198AD /* libWSAPIClient.a in Frameworks */,
 				FDDD1DFF17B5E31700D198AD /* UIKit.framework in Frameworks */,
 				FDDD1DFD17B5E31700D198AD /* Foundation.framework in Frameworks */,
 			);
@@ -85,6 +127,7 @@
 				FDDD1E0317B5E31700D198AD /* WSAPIClientTests */,
 				FDDD1DEC17B5E31700D198AD /* Frameworks */,
 				FDDD1DEB17B5E31700D198AD /* Products */,
+				8CEC81B9FAFB490C988BF9CC /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,9 +143,11 @@
 		FDDD1DEC17B5E31700D198AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FDE196B417B648F800644F61 /* libPods.a */,
 				FDDD1DED17B5E31700D198AD /* Foundation.framework */,
 				FDDD1DFB17B5E31700D198AD /* XCTest.framework */,
 				FDDD1DFE17B5E31700D198AD /* UIKit.framework */,
+				6F0BA30540514BCD8A9FA92F /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -110,8 +155,10 @@
 		FDDD1DEF17B5E31700D198AD /* WSAPIClient */ = {
 			isa = PBXGroup;
 			children = (
-				FDDD1DF217B5E31700D198AD /* WSAPIClient.h */,
-				FDDD1DF417B5E31700D198AD /* WSAPIClient.m */,
+				FDDD1E1917B5FAEC00D198AD /* WSAPI.h */,
+				FDDD1E2F17B5FF2E00D198AD /* WSMessageThreadStatus.h */,
+				FDDD1E1817B5FAD300D198AD /* Client */,
+				FDDD1E1A17B5FAFD00D198AD /* Model */,
 				FDDD1DF017B5E31700D198AD /* Supporting Files */,
 			);
 			path = WSAPIClient;
@@ -121,6 +168,8 @@
 			isa = PBXGroup;
 			children = (
 				FDDD1DF117B5E31700D198AD /* WSAPIClient-Prefix.pch */,
+				FDDD1E3917B6213600D198AD /* WSKeychainConstants.h */,
+				FDDD1E3A17B6214C00D198AD /* WSAPIErrorConstants.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -143,6 +192,36 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		FDDD1E1817B5FAD300D198AD /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				FDDD1DF217B5E31700D198AD /* WSAPIClient.h */,
+				FDDD1DF417B5E31700D198AD /* WSAPIClient.m */,
+				FDDD1E2C17B5FE0000D198AD /* WSAPIClient+Login.m */,
+				FDDD1E3217B6002500D198AD /* WSAPIClient+User.m */,
+				FDDD1E3017B6002500D198AD /* WSAPIClient+Feedback.m */,
+				FDDD1E3117B6002500D198AD /* WSAPIClient+Message.m */,
+				FDDD1E3617B614E800D198AD /* WSHTTPClient.h */,
+				FDDD1E3717B614E800D198AD /* WSHTTPClient.m */,
+			);
+			name = Client;
+			sourceTree = "<group>";
+		};
+		FDDD1E1A17B5FAFD00D198AD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FDDD1E2317B5FB6200D198AD /* WSFeedback.h */,
+				FDDD1E2417B5FB6200D198AD /* WSFeedback.m */,
+				FDDD1E2717B5FB6F00D198AD /* WSFeedbackSubmission.h */,
+				FDDD1E2817B5FB6F00D198AD /* WSFeedbackSubmission.m */,
+				FDDD1E1F17B5FB3800D198AD /* WSLocation.h */,
+				FDDD1E2017B5FB3800D198AD /* WSLocation.m */,
+				FDDD1E1B17B5FB2300D198AD /* WSUser.h */,
+				FDDD1E1C17B5FB2300D198AD /* WSUser.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,9 +229,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FDDD1E0D17B5E31700D198AD /* Build configuration list for PBXNativeTarget "WSAPIClient" */;
 			buildPhases = (
+				48BB511AE2DB422C9EE29986 /* Check Pods Manifest.lock */,
 				FDDD1DE617B5E31700D198AD /* Sources */,
 				FDDD1DE717B5E31700D198AD /* Frameworks */,
 				FDDD1DE817B5E31700D198AD /* CopyFiles */,
+				2A11DABC9A464BBFBDF5327F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +248,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FDDD1E1017B5E31700D198AD /* Build configuration list for PBXNativeTarget "WSAPIClientTests" */;
 			buildPhases = (
+				9184888C8C054E0D9EBCF8E2 /* Check Pods Manifest.lock */,
 				FDDD1DF617B5E31700D198AD /* Sources */,
 				FDDD1DF717B5E31700D198AD /* Frameworks */,
 				FDDD1DF817B5E31700D198AD /* Resources */,
+				3B67245B2F10457FB891E073 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -219,12 +302,82 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2A11DABC9A464BBFBDF5327F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+		3B67245B2F10457FB891E073 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		48BB511AE2DB422C9EE29986 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
+		9184888C8C054E0D9EBCF8E2 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FDDD1DE617B5E31700D198AD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDDD1E3317B6002500D198AD /* WSAPIClient+Feedback.m in Sources */,
+				FDDD1E2D17B5FE0000D198AD /* WSAPIClient+Login.m in Sources */,
+				FDDD1E2917B5FB6F00D198AD /* WSFeedbackSubmission.m in Sources */,
+				FDDD1E3517B6002500D198AD /* WSAPIClient+User.m in Sources */,
+				FDDD1E1D17B5FB2300D198AD /* WSUser.m in Sources */,
 				FDDD1DF517B5E31700D198AD /* WSAPIClient.m in Sources */,
+				FDDD1E2517B5FB6200D198AD /* WSFeedback.m in Sources */,
+				FDDD1E2117B5FB3800D198AD /* WSLocation.m in Sources */,
+				FDDD1E3817B614E800D198AD /* WSHTTPClient.m in Sources */,
+				FDDD1E3417B6002500D198AD /* WSAPIClient+Message.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,7 +385,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDDD1E3F17B6288B00D198AD /* WSAPIClient+Message.m in Sources */,
+				FDDD1E3E17B6288800D198AD /* WSAPIClient+Feedback.m in Sources */,
+				FDDD1E3B17B6284300D198AD /* WSHTTPClient.m in Sources */,
+				FDDD1E2E17B5FE0000D198AD /* WSAPIClient+Login.m in Sources */,
+				FDDD1E2A17B5FB6F00D198AD /* WSFeedbackSubmission.m in Sources */,
+				FDDD1E3D17B6288400D198AD /* WSAPIClient+User.m in Sources */,
+				FDDD1E3C17B6288000D198AD /* WSAPIClient.m in Sources */,
+				FDDD1E1E17B5FB2300D198AD /* WSUser.m in Sources */,
 				FDDD1E0A17B5E31700D198AD /* WSAPIClientTests.m in Sources */,
+				FDDD1E2617B5FB6200D198AD /* WSFeedback.m in Sources */,
+				FDDD1E2217B5FB3800D198AD /* WSLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +489,7 @@
 		};
 		FDDD1E0E17B5E31700D198AD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CEC81B9FAFB490C988BF9CC /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/WSAPIClient.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -338,6 +502,7 @@
 		};
 		FDDD1E0F17B5E31700D198AD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CEC81B9FAFB490C988BF9CC /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/WSAPIClient.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -350,6 +515,7 @@
 		};
 		FDDD1E1117B5E31700D198AD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CEC81B9FAFB490C988BF9CC /* Pods.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -370,6 +536,7 @@
 		};
 		FDDD1E1217B5E31700D198AD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CEC81B9FAFB490C988BF9CC /* Pods.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -403,6 +570,7 @@
 				FDDD1E0F17B5E31700D198AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FDDD1E1017B5E31700D198AD /* Build configuration list for PBXNativeTarget "WSAPIClientTests" */ = {
 			isa = XCConfigurationList;
@@ -411,6 +579,7 @@
 				FDDD1E1217B5E31700D198AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

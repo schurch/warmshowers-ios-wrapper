@@ -8,7 +8,14 @@
 
 #import <XCTest/XCTest.h>
 
+#import "WSAPI.h"
+
+#define USERNAME @"stefan"
+#define PASSWORD @"password"
+
 @interface WSAPIClientTests : XCTestCase
+
+@property (nonatomic) dispatch_semaphore_t semaphore;
 
 @end
 
@@ -17,18 +24,45 @@
 - (void)setUp
 {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    self.semaphore = dispatch_semaphore_create(0);
 }
 
 - (void)tearDown
 {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    while (dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_NOW)) {
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode
+                                 beforeDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+    }
+    
     [super tearDown];
 }
 
-- (void)testExample
+#pragma mark - Login / logout
+
+- (void)testLogin
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    [[WSAPIClient sharedInstance] loginWithUsername:USERNAME password:PASSWORD completionHandler:^(WSUser *user, NSError *errorOrNil) {
+        XCTAssertNil(errorOrNil, @"An error was returned when logging in: %@", errorOrNil.localizedDescription);
+        XCTAssertNotNil(user, @"No user object was returned when logging in.");
+        XCTAssertTrue([[WSAPIClient sharedInstance] canSignRequest], @"Unable to sign requests.");
+
+        dispatch_semaphore_signal(self.semaphore);
+    }];
 }
+
+- (void)testLogout
+{
+    [[WSAPIClient sharedInstance] logoutWithCompletionHandler:^() {
+        XCTAssertFalse([[WSAPIClient sharedInstance] canSignRequest], @"Can still sign requests.");
+        
+        dispatch_semaphore_signal(self.semaphore);
+    }];
+}
+
+#pragma mark - User
+
+#pragma mark - Feedback
+
+#pragma mark - Messages
 
 @end
