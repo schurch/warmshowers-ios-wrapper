@@ -1,0 +1,418 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FDDD1DEE17B5E31700D198AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDDD1DED17B5E31700D198AD /* Foundation.framework */; };
+		FDDD1DF317B5E31700D198AD /* WSAPIClient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FDDD1DF217B5E31700D198AD /* WSAPIClient.h */; };
+		FDDD1DF517B5E31700D198AD /* WSAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDD1DF417B5E31700D198AD /* WSAPIClient.m */; };
+		FDDD1DFC17B5E31700D198AD /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDDD1DFB17B5E31700D198AD /* XCTest.framework */; };
+		FDDD1DFD17B5E31700D198AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDDD1DED17B5E31700D198AD /* Foundation.framework */; };
+		FDDD1DFF17B5E31700D198AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDDD1DFE17B5E31700D198AD /* UIKit.framework */; };
+		FDDD1E0217B5E31700D198AD /* libWSAPIClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDDD1DEA17B5E31700D198AD /* libWSAPIClient.a */; };
+		FDDD1E0817B5E31700D198AD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FDDD1E0617B5E31700D198AD /* InfoPlist.strings */; };
+		FDDD1E0A17B5E31700D198AD /* WSAPIClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDD1E0917B5E31700D198AD /* WSAPIClientTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FDDD1E0017B5E31700D198AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FDDD1DE217B5E31700D198AD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FDDD1DE917B5E31700D198AD;
+			remoteInfo = WSAPIClient;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FDDD1DE817B5E31700D198AD /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				FDDD1DF317B5E31700D198AD /* WSAPIClient.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		FDDD1DEA17B5E31700D198AD /* libWSAPIClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWSAPIClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDDD1DED17B5E31700D198AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FDDD1DF117B5E31700D198AD /* WSAPIClient-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WSAPIClient-Prefix.pch"; sourceTree = "<group>"; };
+		FDDD1DF217B5E31700D198AD /* WSAPIClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WSAPIClient.h; sourceTree = "<group>"; };
+		FDDD1DF417B5E31700D198AD /* WSAPIClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WSAPIClient.m; sourceTree = "<group>"; };
+		FDDD1DFA17B5E31700D198AD /* WSAPIClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WSAPIClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDDD1DFB17B5E31700D198AD /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		FDDD1DFE17B5E31700D198AD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		FDDD1E0517B5E31700D198AD /* WSAPIClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WSAPIClientTests-Info.plist"; sourceTree = "<group>"; };
+		FDDD1E0717B5E31700D198AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FDDD1E0917B5E31700D198AD /* WSAPIClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WSAPIClientTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FDDD1DE717B5E31700D198AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDDD1DEE17B5E31700D198AD /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDDD1DF717B5E31700D198AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDDD1DFC17B5E31700D198AD /* XCTest.framework in Frameworks */,
+				FDDD1E0217B5E31700D198AD /* libWSAPIClient.a in Frameworks */,
+				FDDD1DFF17B5E31700D198AD /* UIKit.framework in Frameworks */,
+				FDDD1DFD17B5E31700D198AD /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FDDD1DE117B5E31700D198AD = {
+			isa = PBXGroup;
+			children = (
+				FDDD1DEF17B5E31700D198AD /* WSAPIClient */,
+				FDDD1E0317B5E31700D198AD /* WSAPIClientTests */,
+				FDDD1DEC17B5E31700D198AD /* Frameworks */,
+				FDDD1DEB17B5E31700D198AD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FDDD1DEB17B5E31700D198AD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FDDD1DEA17B5E31700D198AD /* libWSAPIClient.a */,
+				FDDD1DFA17B5E31700D198AD /* WSAPIClientTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FDDD1DEC17B5E31700D198AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FDDD1DED17B5E31700D198AD /* Foundation.framework */,
+				FDDD1DFB17B5E31700D198AD /* XCTest.framework */,
+				FDDD1DFE17B5E31700D198AD /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FDDD1DEF17B5E31700D198AD /* WSAPIClient */ = {
+			isa = PBXGroup;
+			children = (
+				FDDD1DF217B5E31700D198AD /* WSAPIClient.h */,
+				FDDD1DF417B5E31700D198AD /* WSAPIClient.m */,
+				FDDD1DF017B5E31700D198AD /* Supporting Files */,
+			);
+			path = WSAPIClient;
+			sourceTree = "<group>";
+		};
+		FDDD1DF017B5E31700D198AD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FDDD1DF117B5E31700D198AD /* WSAPIClient-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FDDD1E0317B5E31700D198AD /* WSAPIClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				FDDD1E0917B5E31700D198AD /* WSAPIClientTests.m */,
+				FDDD1E0417B5E31700D198AD /* Supporting Files */,
+			);
+			path = WSAPIClientTests;
+			sourceTree = "<group>";
+		};
+		FDDD1E0417B5E31700D198AD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FDDD1E0517B5E31700D198AD /* WSAPIClientTests-Info.plist */,
+				FDDD1E0617B5E31700D198AD /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FDDD1DE917B5E31700D198AD /* WSAPIClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDDD1E0D17B5E31700D198AD /* Build configuration list for PBXNativeTarget "WSAPIClient" */;
+			buildPhases = (
+				FDDD1DE617B5E31700D198AD /* Sources */,
+				FDDD1DE717B5E31700D198AD /* Frameworks */,
+				FDDD1DE817B5E31700D198AD /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WSAPIClient;
+			productName = WSAPIClient;
+			productReference = FDDD1DEA17B5E31700D198AD /* libWSAPIClient.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		FDDD1DF917B5E31700D198AD /* WSAPIClientTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDDD1E1017B5E31700D198AD /* Build configuration list for PBXNativeTarget "WSAPIClientTests" */;
+			buildPhases = (
+				FDDD1DF617B5E31700D198AD /* Sources */,
+				FDDD1DF717B5E31700D198AD /* Frameworks */,
+				FDDD1DF817B5E31700D198AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FDDD1E0117B5E31700D198AD /* PBXTargetDependency */,
+			);
+			name = WSAPIClientTests;
+			productName = WSAPIClientTests;
+			productReference = FDDD1DFA17B5E31700D198AD /* WSAPIClientTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FDDD1DE217B5E31700D198AD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Stefan Church";
+			};
+			buildConfigurationList = FDDD1DE517B5E31700D198AD /* Build configuration list for PBXProject "WSAPIClient" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FDDD1DE117B5E31700D198AD;
+			productRefGroup = FDDD1DEB17B5E31700D198AD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FDDD1DE917B5E31700D198AD /* WSAPIClient */,
+				FDDD1DF917B5E31700D198AD /* WSAPIClientTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FDDD1DF817B5E31700D198AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDDD1E0817B5E31700D198AD /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FDDD1DE617B5E31700D198AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDDD1DF517B5E31700D198AD /* WSAPIClient.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDDD1DF617B5E31700D198AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDDD1E0A17B5E31700D198AD /* WSAPIClientTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FDDD1E0117B5E31700D198AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FDDD1DE917B5E31700D198AD /* WSAPIClient */;
+			targetProxy = FDDD1E0017B5E31700D198AD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FDDD1E0617B5E31700D198AD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FDDD1E0717B5E31700D198AD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FDDD1E0B17B5E31700D198AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FDDD1E0C17B5E31700D198AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FDDD1E0E17B5E31700D198AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/WSAPIClient.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WSAPIClient/WSAPIClient-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		FDDD1E0F17B5E31700D198AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/WSAPIClient.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WSAPIClient/WSAPIClient-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		FDDD1E1117B5E31700D198AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WSAPIClient/WSAPIClient-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "WSAPIClientTests/WSAPIClientTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		FDDD1E1217B5E31700D198AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WSAPIClient/WSAPIClient-Prefix.pch";
+				INFOPLIST_FILE = "WSAPIClientTests/WSAPIClientTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FDDD1DE517B5E31700D198AD /* Build configuration list for PBXProject "WSAPIClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDDD1E0B17B5E31700D198AD /* Debug */,
+				FDDD1E0C17B5E31700D198AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDDD1E0D17B5E31700D198AD /* Build configuration list for PBXNativeTarget "WSAPIClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDDD1E0E17B5E31700D198AD /* Debug */,
+				FDDD1E0F17B5E31700D198AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FDDD1E1017B5E31700D198AD /* Build configuration list for PBXNativeTarget "WSAPIClientTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDDD1E1117B5E31700D198AD /* Debug */,
+				FDDD1E1217B5E31700D198AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FDDD1DE217B5E31700D198AD /* Project object */;
+}
