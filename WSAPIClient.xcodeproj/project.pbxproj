@@ -93,7 +93,7 @@
 		FDDD1E3717B614E800D198AD /* WSHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSHTTPClient.m; sourceTree = "<group>"; };
 		FDDD1E3917B6213600D198AD /* WSKeychainConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WSKeychainConstants.h; sourceTree = "<group>"; };
 		FDDD1E3A17B6214C00D198AD /* WSAPIErrorConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WSAPIErrorConstants.h; sourceTree = "<group>"; };
-		FDE196B417B648F800644F61 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		FDE196B417B648F800644F61 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -493,7 +493,7 @@
 			buildSettings = {
 				DSTROOT = /tmp/WSAPIClient.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "WSAPIClient/WSAPIClient-Prefix.pch";
+				GCC_PREFIX_HEADER = "WSAPIClient-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -506,7 +506,7 @@
 			buildSettings = {
 				DSTROOT = /tmp/WSAPIClient.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "WSAPIClient/WSAPIClient-Prefix.pch";
+				GCC_PREFIX_HEADER = "WSAPIClient-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -523,7 +523,7 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "WSAPIClient/WSAPIClient-Prefix.pch";
+				GCC_PREFIX_HEADER = "WSAPIClient-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -544,7 +544,7 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "WSAPIClient/WSAPIClient-Prefix.pch";
+				GCC_PREFIX_HEADER = "WSAPIClient-Prefix.pch";
 				INFOPLIST_FILE = "WSAPIClientTests/WSAPIClientTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
