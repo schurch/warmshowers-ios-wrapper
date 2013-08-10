@@ -64,9 +64,9 @@
 /* Begin PBXFileReference section */
 		6F0BA30540514BCD8A9FA92F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CEC81B9FAFB490C988BF9CC /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		FD94C8CF17B6E3450031E60E /* WSAPIClient-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WSAPIClient-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		FDDD1DEA17B5E31700D198AD /* libWSAPIClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWSAPIClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDDD1DED17B5E31700D198AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		FDDD1DF117B5E31700D198AD /* WSAPIClient-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WSAPIClient-Prefix.pch"; sourceTree = "<group>"; };
 		FDDD1DF217B5E31700D198AD /* WSAPIClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WSAPIClient.h; sourceTree = "<group>"; };
 		FDDD1DF417B5E31700D198AD /* WSAPIClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WSAPIClient.m; sourceTree = "<group>"; };
 		FDDD1DFA17B5E31700D198AD /* WSAPIClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WSAPIClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,7 +167,7 @@
 		FDDD1DF017B5E31700D198AD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FDDD1DF117B5E31700D198AD /* WSAPIClient-Prefix.pch */,
+				FD94C8CF17B6E3450031E60E /* WSAPIClient-Prefix.pch */,
 				FDDD1E3917B6213600D198AD /* WSKeychainConstants.h */,
 				FDDD1E3A17B6214C00D198AD /* WSAPIErrorConstants.h */,
 			);
