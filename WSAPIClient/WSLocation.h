@@ -10,6 +10,11 @@
 
 @interface WSLocation : NSObject
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+@property (nonatomic) float minimumLatitude;
+@property (nonatomic) float maximumLatitude;
+@property (nonatomic) float minimumLongitude;
+@property (nonatomic) float maximumLongitude;
+@property (nonatomic) float centerLatitude;
+@property (nonatomic) float centerLongitude;
 
 @end

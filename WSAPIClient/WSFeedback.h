@@ -10,6 +10,6 @@
 
 @interface WSFeedback : NSObject
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

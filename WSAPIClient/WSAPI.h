@@ -16,5 +16,6 @@
 #import "WSLocation.h"
 #import "WSMessageThreadStatus.h"
 #import "WSUser.h"
+#import "WSUserDetails.h"
 
 #endif

@@ -9,10 +9,11 @@
 #import "WSAPIClient.h"
 
 #import "SSKeychain.h"
+#import "WSAPIErrorConstants.h"
 #import "WSHttpClient.h"
 #import "WSKeychainConstants.h"
-#import "WSAPIErrorConstants.h"
 #import "WSUser.h"
+#import "WSUserDetails.h"
 
 @implementation WSAPIClient (Login)
 
@@ -29,14 +30,17 @@
     }
 }
 
-- (void)loginWithUsername:(NSString *)username password:(NSString *)password completionHandler:(void (^)(WSUser *user, NSError *errorOrNil))completionHandler
+- (void)loginWithUsername:(NSString *)username password:(NSString *)password completionHandler:(void (^)(WSUserDetails *user, NSError *errorOrNil))completionHandler
 {
     NSDictionary *postParameters = @{ @"username": username, @"password": password };
     
     [self.client postPath:@"/services/rest/user/login" parameters:postParameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSString *sessionId = [responseObject objectForKey:@"sessid"];
-        NSString *sessionName = [responseObject objectForKey:@"session_name"];
-        WSUser *user = [[WSUser alloc] initWithDictionary:[responseObject objectForKey:@"user"]];
+#ifdef DEBUG
+        NSLog(@"Service response: %@", responseObject);
+#endif
+        NSString *sessionId = responseObject[@"sessid"];
+        NSString *sessionName = responseObject[@"session_name"];
+        WSUserDetails *user = [[WSUserDetails alloc] initWithDictionary:responseObject[@"user"]];
         
         if (sessionId && sessionName) {
             [SSKeychain setPassword:sessionId forService:[[NSBundle bundleForClass:[self class]] bundleIdentifier] account:KEYCHAIN_SESSION_ID_KEY];
@@ -45,7 +49,7 @@
         }
         else {
             NSDictionary *errorDetails = @{ NSLocalizedDescriptionKey: @"Session ID or Session Name missing from server response." };
-            completionHandler(nil, [NSError errorWithDomain:WS_API_CLIENT_ERROR_DOMAIN code:MISSING_SESSION_INFORMATION userInfo:errorDetails]);
+            completionHandler(nil, [NSError errorWithDomain:WS_API_CLIENT_ERROR_DOMAIN code:SESSION_INFORMATION_MISSING userInfo:errorDetails]);
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -56,6 +60,9 @@
 - (void)logoutWithCompletionHandler:(void (^)())completionHandler
 {
     [self.client postPath:@"/services/rest/user/logout" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+#ifdef DEBUG
+        NSLog(@"Service response: %@", responseObject);
+#endif
         NSNumber *response;
         if ([responseObject count] > 0) {
             response = responseObject[0];
