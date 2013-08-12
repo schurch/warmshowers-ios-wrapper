@@ -10,6 +10,8 @@
 
 #import "WSHTTPClient.h"
 
+NSString * const WSAPIClientErrorDomain = @"WSAPIClientErrorDomain";
+
 @implementation WSAPIClient
 
 + (instancetype)sharedInstance
@@ -29,6 +31,12 @@
         self.client = [[WSHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:BASE_URL]];
     }
     return self;
+}
+
+- (NSError *)unexpectedFormatReponseError
+{
+    NSDictionary *userInfo = @{ NSLocalizedFailureReasonErrorKey: @"The response from the web server was in an unexpected format." };
+    return [NSError errorWithDomain:WSAPIClientErrorDomain code:WSAPIClientErrorCodeUnexpectedFormat userInfo:userInfo];
 }
 
 @end

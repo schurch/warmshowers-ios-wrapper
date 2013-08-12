@@ -8,7 +8,7 @@
 
 #import "WSAPIClient.h"
 
-#import "WSAPIErrorConstants.h"
+#import "WSAPIClinet+Private.h"
 #import "WSHTTPClient.h"
 #import "WSLocation.h"
 #import "WSUser.h"
@@ -40,8 +40,7 @@
             completionHandler(results, nil);
         }
         else {
-            NSDictionary *errorDetails = @{ NSLocalizedDescriptionKey: [NSString stringWithFormat:@"The user search was in an unexpected response format."] };
-            completionHandler(nil, [NSError errorWithDomain:WS_API_CLIENT_ERROR_DOMAIN code:UNEXPECTED_RESPONSE_FORMAT userInfo:errorDetails]);
+            completionHandler(nil, [self unexpectedFormatReponseError]);
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -65,23 +64,15 @@
                 completionHandler(user, nil);
             }
             else {
-                completionHandler(nil, [self generateUserNotFoundErrorForUserId:userId]);
+                completionHandler(nil, [self unexpectedFormatReponseError]);
             }
         }
         else {
-            completionHandler(nil, [self generateUserNotFoundErrorForUserId:userId]);
+            completionHandler(nil, [self unexpectedFormatReponseError]);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         completionHandler(nil , error);
     }];
-}
-
-#pragma mark - Private
-
-- (NSError *)generateUserNotFoundErrorForUserId:(NSInteger)userId
-{
-    NSDictionary *errorDetails = @{ NSLocalizedDescriptionKey: [NSString stringWithFormat:@"No user was returned with User ID: %i", userId] };
-    return [NSError errorWithDomain:WS_API_CLIENT_ERROR_DOMAIN code:USER_NOT_FOUND userInfo:errorDetails];
 }
 
 @end

@@ -104,6 +104,22 @@
 
 #pragma mark - Feedback
 
+- (void)testGetFeedback
+{
+    [[WSAPIClient sharedInstance] loginWithUsername:USERNAME password:PASSWORD completionHandler:^(WSUserDetails *user, NSError *errorOrNil) {
+        [[WSAPIClient sharedInstance] getFeedbackForUserWithId:13510 completionHandler:^(NSArray *feedback, NSError *errorOrNil) {
+            XCTAssertNil(errorOrNil, @"An error was returned when fetching feedback: %@", errorOrNil.localizedDescription);
+            
+            XCTAssertTrue([feedback count] > 0, @"No feedback objects were returned.");
+            if ([feedback count] > 0) {
+                XCTAssertTrue([feedback[0] isKindOfClass:[WSFeedback class]], @"Array does not contain WSFeedback objects.");
+            }
+            
+            dispatch_semaphore_signal(self.semaphore);
+        }];
+    }];
+}
+
 #pragma mark - Messages
 
 @end

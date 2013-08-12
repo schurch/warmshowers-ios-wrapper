@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Stefan Church. All rights reserved.
 //
 
-#ifndef WSAPIClient_WSMessageThreadReadStatus_h
-#define WSAPIClient_WSMessageThreadReadStatus_h
+#ifndef _WSAPIClient_WSMessageThreadReadStatus_
+#define _WSAPIClient_WSMessageThreadReadStatus_
 
 typedef NS_ENUM(NSInteger, WSMessageThreadStatus) {
     WSMessageThreadStatusRead,

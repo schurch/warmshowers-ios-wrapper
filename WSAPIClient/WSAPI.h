@@ -6,13 +6,14 @@
 //  Copyright (c) 2013 Stefan Church. All rights reserved.
 //
 
-#ifndef WSAPIClient_WSAPI_h
-#define WSAPIClient_WSAPI_h
+#ifndef _WSAPI_
+#define _WSAPI_
 
 #import "WSAPIClient.h"
 
 #import "WSFeedback.h"
 #import "WSFeedbackSubmission.h"
+#import "WSFeedbackUserStatus.h"
 #import "WSLocation.h"
 #import "WSMessageThreadStatus.h"
 #import "WSUser.h"

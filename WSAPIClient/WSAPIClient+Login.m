@@ -9,7 +9,7 @@
 #import "WSAPIClient.h"
 
 #import "SSKeychain.h"
-#import "WSAPIErrorConstants.h"
+#import "WSAPIClinet+Private.h"
 #import "WSHttpClient.h"
 #import "WSKeychainConstants.h"
 #import "WSUser.h"
@@ -48,8 +48,8 @@
             completionHandler(user, nil);
         }
         else {
-            NSDictionary *errorDetails = @{ NSLocalizedDescriptionKey: @"Session ID or Session Name missing from server response." };
-            completionHandler(nil, [NSError errorWithDomain:WS_API_CLIENT_ERROR_DOMAIN code:SESSION_INFORMATION_MISSING userInfo:errorDetails]);
+            NSDictionary *userInfo = @{ NSLocalizedFailureReasonErrorKey: @"The login response from the web server is missing session information." };
+            completionHandler(nil, [NSError errorWithDomain:WSAPIClientErrorDomain code:WSAPIClientErrorCodeSessionDataMissing userInfo:userInfo]);
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

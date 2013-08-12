@@ -21,6 +21,15 @@
 // Maximum number of results to return when fetching users
 #define MAX_USER_RESULTS 50
 
+// Error domain
+extern NSString * const WSAPIClientErrorDomain;
+
+// Error codes
+typedef NS_ENUM(NSInteger, WSAPIClientErrorCode) {
+    WSAPIClientErrorCodeUnexpectedFormat = 1001,
+    WSAPIClientErrorCodeSessionDataMissing = 1002
+};
+
 @interface WSAPIClient : NSObject
 
 @property (nonatomic, strong) WSHTTPClient *client;

@@ -8,6 +8,9 @@
 
 #import "WSAPIClient.h"
 
+#import "WSAPIClinet+Private.h"
+#import "WSHTTPClient.h"
+
 @implementation WSAPIClient (Message)
 
 - (void)fetchUnreadMessageCountWithCompletionHandler:(void (^)(NSInteger count, NSError *errorOrNil))completionHandler
