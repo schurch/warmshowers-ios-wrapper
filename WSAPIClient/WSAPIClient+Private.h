@@ -8,6 +8,7 @@
 
 @interface WSAPIClient (Private)
 
+- (NSError *)errorWithCode:(WSAPIClientErrorCode)errorCode reason:(NSString *)reason;
 - (NSError *)unexpectedFormatReponseError;
 
 @end

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "WSFeedbackUserStatus.h"
+#import "WSFeedbackUserType.h"
 
 @interface WSFeedback : NSObject
 
@@ -17,9 +17,9 @@
 @property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSDate *feedbackDate;
-@property (nonatomic, strong) NSString *feedback;
+@property (nonatomic, strong) NSString *feedbackText;
 
-@property (nonatomic) WSFeedbackUserStatus feedbackUserStatus;
+@property (nonatomic) WSFeedbackUserType feedbackUserStatus;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

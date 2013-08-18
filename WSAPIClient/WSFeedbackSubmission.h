@@ -8,8 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+#import "WSFeedbackValue.h"
+#import "WSFeedbackUserType.h"
+
 @interface WSFeedbackSubmission : NSObject
 
-- (id)initWithDictionary:(NSDictionary *)dictionary;
+@property (nonatomic, strong) NSString *username;
+@property (nonatomic, strong) NSString *feedbackText;
+@property (nonatomic, strong) NSDate *feedbackDate;
+
+@property (nonatomic) WSFeedbackUserType feedbackUserType;
+@property (nonatomic) WSFeedbackValue feedbackValue;
 
 @end

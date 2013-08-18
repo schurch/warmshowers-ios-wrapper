@@ -8,7 +8,7 @@
 
 #import "WSAPIClient.h"
 
-#import "WSAPIClinet+Private.h"
+#import "WSAPIClient+Private.h"
 #import "WSHTTPClient.h"
 #import "WSLocation.h"
 #import "WSUser.h"
@@ -18,12 +18,12 @@
 
 - (void)searchForUsersInLocation:(WSLocation *)location completionHandler:(void (^)(NSArray *users, NSError *error))completionHandler
 {
-    NSDictionary *postParamters = @{ @"minlat": [NSString stringWithFormat:@"%f", location.minimumLatitude],
-                                     @"maxlat": [NSString stringWithFormat:@"%f", location.maximumLatitude],
-                                     @"minlon": [NSString stringWithFormat:@"%f", location.minimumLongitude],
-                                     @"maxlon": [NSString stringWithFormat:@"%f", location.maximumLongitude],
-                                     @"centerlat": [NSString stringWithFormat:@"%f", location.centerLatitude],
-                                     @"centerlon": [NSString stringWithFormat:@"%f", location.centerLongitude],
+    NSDictionary *postParamters = @{ @"minlat": [NSString stringWithFormat:@"%f", location.minimumCoordinateForBoundingArea.latitude],
+                                     @"maxlat": [NSString stringWithFormat:@"%f", location.maximumCoordinateForBoundingArea.latitude],
+                                     @"minlon": [NSString stringWithFormat:@"%f", location.minimumCoordinateForBoundingArea.longitude],
+                                     @"maxlon": [NSString stringWithFormat:@"%f", location.maximumCoordinateForBoundingArea.longitude],
+                                     @"centerlat": [NSString stringWithFormat:@"%f", [location centerCoordinateForBoundingArea].latitude],
+                                     @"centerlon": [NSString stringWithFormat:@"%f", [location centerCoordinateForBoundingArea].longitude],
                                      @"limit": [NSString stringWithFormat:@"%i", MAX_USER_RESULTS] };
 
     [self.client postPath:@"/services/rest/hosts/by_location" parameters:postParamters success:^(AFHTTPRequestOperation *operation, id responseObject) {

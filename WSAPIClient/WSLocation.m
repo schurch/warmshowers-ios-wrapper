@@ -10,4 +10,9 @@
 
 @implementation WSLocation
 
+- (CLLocationCoordinate2D)centerCoordinateForBoundingArea
+{
+    return CLLocationCoordinate2DMake((self.minimumCoordinateForBoundingArea.latitude + self.maximumCoordinateForBoundingArea.latitude / 2), (self.minimumCoordinateForBoundingArea.longitude + self.maximumCoordinateForBoundingArea.longitude / 2));
+}
+
 @end

@@ -27,7 +27,8 @@ extern NSString * const WSAPIClientErrorDomain;
 // Error codes
 typedef NS_ENUM(NSInteger, WSAPIClientErrorCode) {
     WSAPIClientErrorCodeUnexpectedFormat = 1001,
-    WSAPIClientErrorCodeSessionDataMissing = 1002
+    WSAPIClientErrorCodeSessionDataMissing = 1002,
+    WSAPIClientErrorCodeNoRecipients = 1003
 };
 
 @interface WSAPIClient : NSObject
@@ -100,9 +101,9 @@ typedef NS_ENUM(NSInteger, WSAPIClientErrorCode) {
 
 /**
  Send a message to the specified recpients.
- The recipients is a comma-delimited set of usernames (not user IDs).
+ Recipients is an array of usernames (not user IDs).
  */
-- (void)sendMessageToRecipients:(NSString *)recipients subject:(NSString *)subject message:(NSString *)message completionHandler:(void (^)(NSError *errorOrNil))completionHandler;
+- (void)sendMessageToRecipients:(NSArray *)recipients subject:(NSString *)subject message:(NSString *)message completionHandler:(void (^)(NSError *errorOrNil))completionHandler;
 
 /**
  Replay to a message in a thread.

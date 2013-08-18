@@ -14,6 +14,8 @@ NSString * const WSAPIClientErrorDomain = @"WSAPIClientErrorDomain";
 
 @implementation WSAPIClient
 
+#pragma mark - Init
+
 + (instancetype)sharedInstance
 {
     static dispatch_once_t pred;
@@ -33,10 +35,17 @@ NSString * const WSAPIClientErrorDomain = @"WSAPIClientErrorDomain";
     return self;
 }
 
+#pragma mark - Error helpers
+
+- (NSError *)errorWithCode:(WSAPIClientErrorCode)errorCode reason:(NSString *)reason
+{
+    NSDictionary *userInfo = @{ NSLocalizedFailureReasonErrorKey:reason };
+    return [NSError errorWithDomain:WSAPIClientErrorDomain code:errorCode userInfo:userInfo];
+}
+
 - (NSError *)unexpectedFormatReponseError
 {
-    NSDictionary *userInfo = @{ NSLocalizedFailureReasonErrorKey: @"The response from the web server was in an unexpected format." };
-    return [NSError errorWithDomain:WSAPIClientErrorDomain code:WSAPIClientErrorCodeUnexpectedFormat userInfo:userInfo];
+    return [self errorWithCode:WSAPIClientErrorCodeUnexpectedFormat reason:@"The response from the web server was in an unexpected format."];
 }
 
 @end

@@ -70,12 +70,8 @@
     [[WSAPIClient sharedInstance] loginWithUsername:USERNAME password:PASSWORD completionHandler:^(WSUserDetails *user, NSError *errorOrNil) {
         // build test location around Wellington
         WSLocation *location = [[WSLocation alloc] init];
-        location.minimumLatitude = -41.317013;
-        location.maximumLatitude = -41.198806;
-        location.minimumLongitude = 174.703217;
-        location.maximumLongitude = 174.987488;
-        location.centerLatitude = (location.minimumLatitude + location.maximumLatitude) / 2;
-        location.centerLongitude = (location.minimumLongitude + location.maximumLongitude) / 2;
+        location.minimumCoordinateForBoundingArea = CLLocationCoordinate2DMake(-41.317013, 174.703217);
+        location.maximumCoordinateForBoundingArea = CLLocationCoordinate2DMake(-41.198806, 174.987488);
         
         [[WSAPIClient sharedInstance] searchForUsersInLocation:location completionHandler:^(NSArray *users, NSError *errorOrNil) {
             XCTAssertNil(errorOrNil, @"An error was returned when searching for users: %@", errorOrNil.localizedDescription);
@@ -120,6 +116,43 @@
     }];
 }
 
+#warning Feedback submission is always returning a 401 error
+//- (void)testSubmitFeedback
+//{
+//    [[WSAPIClient sharedInstance] loginWithUsername:USERNAME password:PASSWORD completionHandler:^(WSUserDetails *user, NSError *errorOrNil) {
+//        WSFeedbackSubmission *feedbackSubmission = [[WSFeedbackSubmission alloc] init];
+//       [[WSAPIClient sharedInstance] submitFeedback:feedbackSubmission completionHandler:^(NSError *errorOrNil) {
+//           XCTAssertNil(errorOrNil, @"An error was returned when submitting feedback: %@", errorOrNil.localizedDescription);
+//           
+//           dispatch_semaphore_signal(self.semaphore);
+//       }];
+//    }];
+//}
+
 #pragma mark - Messages
+
+- (void)testFetchUnreadMessageCount
+{
+    [[WSAPIClient sharedInstance] loginWithUsername:USERNAME password:PASSWORD completionHandler:^(WSUserDetails *user, NSError *errorOrNil) {
+        [[WSAPIClient sharedInstance] fetchUnreadMessageCountWithCompletionHandler:^(NSInteger count, NSError *errorOrNil) {
+            XCTAssertNil(errorOrNil, @"An error was returned when fetching unread message count: %@", errorOrNil.localizedDescription);
+            
+            dispatch_semaphore_signal(self.semaphore);
+            
+        }];
+    }];
+}
+
+- (void)testSendMessageToRecipients
+{
+    [[WSAPIClient sharedInstance] loginWithUsername:USERNAME password:PASSWORD completionHandler:^(WSUserDetails *user, NSError *errorOrNil) {
+        [[WSAPIClient sharedInstance] sendMessageToRecipients:@[@"stefan", @"stefanchurch"] subject:@"Test subject" message:@"This is my test message. Testing, testing, testing, 1, 2, 3." completionHandler:^(NSError *errorOrNil) {
+            XCTAssertNil(errorOrNil, @"An error was returned when sending a message: %@", errorOrNil.localizedDescription);
+            
+            dispatch_semaphore_signal(self.semaphore);
+            
+        }];
+    }];
+}
 
 @end

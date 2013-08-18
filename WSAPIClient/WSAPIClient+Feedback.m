@@ -8,9 +8,11 @@
 
 #import "WSAPIClient.h"
 
-#import "WSAPIClinet+Private.h"
+#import "AFJSONRequestOperation.h"
+#import "WSAPIClient+Private.h"
 #import "WSHTTPClient.h"
 #import "WSFeedback.h"
+#import "WSFeedbackSubmission.h"
 
 @implementation WSAPIClient (Feedback)
 
@@ -46,7 +48,60 @@
 
 - (void)submitFeedback:(WSFeedbackSubmission *)feedbackSubmission completionHandler:(void (^)(NSError *errorOrNil))completionHandler
 {
+    NSString *feedbackValue;
+    switch (feedbackSubmission.feedbackValue) {
+        case WSFeedbackValuePostive:
+            feedbackValue = @"Postive";
+            break;
+        case WSFeedbackValueNeutral:
+            feedbackValue = @"Neutral";
+            break;
+        case WSFeedbackValueNegative:
+            feedbackValue = @"Negative";
+            break;
+        default:
+            
+            NSLog(@"Unrecognized feedback type.");
+            break;
+    }
     
+    NSString *userTypeValue;
+    switch (feedbackSubmission.feedbackUserType) {
+        case WSFeedbackUserTypeGuest:
+            userTypeValue = @"Guest";
+            break;
+        case WSFeedbackUserTypeHost:
+            userTypeValue = @"Host";
+            break;
+        case WSFeedbackUserTypeMetTraveling:
+            userTypeValue = @"Met Traveling";
+            break;
+        case WSFeedbackUserTypeOther:
+            userTypeValue = @"Other";
+            break;
+        default:
+            userTypeValue = @"Other";
+            break;
+    }
+    
+    NSDateComponents *dateComponents = [[NSCalendar currentCalendar] components:NSYearCalendarUnit|NSMonthCalendarUnit fromDate:feedbackSubmission.feedbackDate];
+    
+    NSDictionary *postParameters = @{ @"node[type]": @"trust_referral",
+                                      @"node[field_member_i_trust][0][uid][uid]": feedbackSubmission.username,
+                                      @"node[field_rating][value]": feedbackValue,
+                                      @"node[body]": feedbackSubmission.feedbackText,
+                                      @"node[field_guest_or_host][value]": userTypeValue,
+                                      @"node[field_hosting_date][0][value][year]": [NSString stringWithFormat:@"%i", dateComponents.year],
+                                      @"node[field_hosting_date][0][value][month]": [NSString stringWithFormat:@"%i", dateComponents.month] };
+    
+    [self.client postPath:@"/services/rest/node" parameters:postParameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+#ifdef DEBUG
+        NSLog(@"Service response: %@", responseObject);
+#endif
+        completionHandler(nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completionHandler(error);
+    }];
 }
 
 @end

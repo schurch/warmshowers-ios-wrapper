@@ -37,21 +37,21 @@
             self.feedbackDate = [NSDate dateWithTimeIntervalSince1970:[dictionary[@"field_hosting_date_value"] integerValue]];
         }
         
-        self.feedback = dictionary[@"body"];
+        self.feedbackText = dictionary[@"body"];
         
         NSString *userStatus = [[dictionary[@"field_guest_or_host_value"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] lowercaseString];
 
         if ([userStatus isEqualToString:@"host"]) {
-            self.feedbackUserStatus = WSFeedbackUserStatusHost;
+            self.feedbackUserStatus = WSFeedbackUserTypeHost;
         }
         else if ([userStatus isEqualToString:@"guest"]) {
-            self.feedbackUserStatus = WSFeedbackUserStatusGuest;
+            self.feedbackUserStatus = WSFeedbackUserTypeGuest;
         }
         else if ([userStatus isEqualToString:@"met traveling"]) {
-            self.feedbackUserStatus = WSFeedbackUserStatusMetTraveller;
+            self.feedbackUserStatus = WSFeedbackUserTypeMetTraveling;
         }
         else {
-            self.feedbackUserStatus = WSFeedbackUserStatusOther;
+            self.feedbackUserStatus = WSFeedbackUserTypeOther;
         }
     }
     return self;

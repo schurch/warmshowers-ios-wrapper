@@ -9,11 +9,11 @@
 #ifndef _WSAPIClient_WSFeedbackUserStatus_
 #define _WSAPIClient_WSFeedbackUserStatus_
 
-typedef NS_ENUM(NSInteger, WSFeedbackUserStatus) {
-    WSFeedbackUserStatusGuest,
-    WSFeedbackUserStatusHost,
-    WSFeedbackUserStatusMetTraveller,
-    WSFeedbackUserStatusOther
+typedef NS_ENUM(NSInteger, WSFeedbackUserType) {
+    WSFeedbackUserTypeGuest,
+    WSFeedbackUserTypeHost,
+    WSFeedbackUserTypeMetTraveling,
+    WSFeedbackUserTypeOther
 };
 
 #endif

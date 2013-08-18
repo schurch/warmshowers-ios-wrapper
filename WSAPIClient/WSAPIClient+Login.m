@@ -9,7 +9,7 @@
 #import "WSAPIClient.h"
 
 #import "SSKeychain.h"
-#import "WSAPIClinet+Private.h"
+#import "WSAPIClient+Private.h"
 #import "WSHttpClient.h"
 #import "WSKeychainConstants.h"
 #import "WSUser.h"

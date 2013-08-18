@@ -7,14 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface WSLocation : NSObject
 
-@property (nonatomic) float minimumLatitude;
-@property (nonatomic) float maximumLatitude;
-@property (nonatomic) float minimumLongitude;
-@property (nonatomic) float maximumLongitude;
-@property (nonatomic) float centerLatitude;
-@property (nonatomic) float centerLongitude;
+@property (nonatomic) CLLocationCoordinate2D minimumCoordinateForBoundingArea;
+@property (nonatomic) CLLocationCoordinate2D maximumCoordinateForBoundingArea;
+
+- (CLLocationCoordinate2D)centerCoordinateForBoundingArea;
 
 @end

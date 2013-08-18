@@ -13,7 +13,8 @@
 
 #import "WSFeedback.h"
 #import "WSFeedbackSubmission.h"
-#import "WSFeedbackUserStatus.h"
+#import "WSFeedbackUserType.h"
+#import "WSFeedbackValue.h"
 #import "WSLocation.h"
 #import "WSMessageThreadStatus.h"
 #import "WSUser.h"
