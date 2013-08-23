@@ -155,4 +155,44 @@
     }];
 }
 
+- (void)testReplyToMessage
+{
+    [[WSAPIClient sharedInstance] loginWithUsername:USERNAME password:PASSWORD completionHandler:^(WSUserDetails *user, NSError *errorOrNil) {
+        [[WSAPIClient sharedInstance] replyToMessageWithThreadId:50857 message:@"Aye, received that ok." completionHandler:^(NSError *errorOrNil) {
+            XCTAssertNil(errorOrNil, @"An error was returned when replaying to a message: %@", errorOrNil.localizedDescription);
+            
+            dispatch_semaphore_signal(self.semaphore);
+            
+        }];
+    }];
+}
+
+- (void)testMessageReadStatus
+{
+    [[WSAPIClient sharedInstance] loginWithUsername:USERNAME password:PASSWORD completionHandler:^(WSUserDetails *user, NSError *errorOrNil) {
+        [[WSAPIClient sharedInstance] setMessageThreadReadStatus:WSMessageThreadStatusRead forThreadId:50855 completionHandler:^(NSError *errorOrNil) {
+            XCTAssertNil(errorOrNil, @"An error was returned when changing the message read status: %@", errorOrNil.localizedDescription);
+            
+            dispatch_semaphore_signal(self.semaphore);
+        }];
+    }];
+}
+
+- (void)testGetAllMessages
+{
+    [[WSAPIClient sharedInstance] loginWithUsername:USERNAME password:PASSWORD completionHandler:^(WSUserDetails *user, NSError *errorOrNil) {
+        [[WSAPIClient sharedInstance] getAllMessagesWithCompletionHandler:^(NSArray *messages, NSError *errorOrNil) {
+            XCTAssertNil(errorOrNil, @"There was an error fetching all the messages: %@", errorOrNil.localizedDescription);
+            
+            XCTAssertTrue([messages count] > 0, @"No message objects were returned.");
+            if ([messages count] > 0) {
+                XCTAssertTrue([messages[0] isKindOfClass:[WSMessage class]], @"Array does not contain WSMessage objects.");
+            }
+            
+            dispatch_semaphore_signal(self.semaphore);
+            
+        }];
+    }];
+}
+
 @end

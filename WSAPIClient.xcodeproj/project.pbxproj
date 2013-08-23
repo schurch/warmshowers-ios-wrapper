@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		A7B5F53230DD45ABAFE3A058 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0BA30540514BCD8A9FA92F /* libPods.a */; settings = {ATTRIBUTES = (Required, ); }; };
+		FD403F5617C77BE40042EFC1 /* WSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = FD403F5517C77BE40042EFC1 /* WSMessage.m */; };
+		FD403F5917C77E1A0042EFC1 /* WSMessageParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = FD403F5817C77E1A0042EFC1 /* WSMessageParticipant.m */; };
+		FD403F5A17C781770042EFC1 /* WSMessageParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = FD403F5817C77E1A0042EFC1 /* WSMessageParticipant.m */; };
+		FD403F5B17C7817B0042EFC1 /* WSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = FD403F5517C77BE40042EFC1 /* WSMessage.m */; };
 		FD94C8D217B736C40031E60E /* WSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FD94C8D117B736C40031E60E /* WSUser.m */; };
 		FD94C8D317B73AD50031E60E /* WSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FD94C8D117B736C40031E60E /* WSUser.m */; };
 		FDB119BC17B8F234007546F6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB119BB17B8F234007546F6 /* MobileCoreServices.framework */; };
@@ -71,6 +75,10 @@
 /* Begin PBXFileReference section */
 		6F0BA30540514BCD8A9FA92F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CEC81B9FAFB490C988BF9CC /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		FD403F5417C77BE40042EFC1 /* WSMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMessage.h; sourceTree = "<group>"; };
+		FD403F5517C77BE40042EFC1 /* WSMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSMessage.m; sourceTree = "<group>"; };
+		FD403F5717C77E1A0042EFC1 /* WSMessageParticipant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMessageParticipant.h; sourceTree = "<group>"; };
+		FD403F5817C77E1A0042EFC1 /* WSMessageParticipant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSMessageParticipant.m; sourceTree = "<group>"; };
 		FD94C8CF17B6E3450031E60E /* WSAPIClient-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WSAPIClient-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		FD94C8D017B736C40031E60E /* WSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSUser.h; sourceTree = "<group>"; };
 		FD94C8D117B736C40031E60E /* WSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSUser.m; sourceTree = "<group>"; };
@@ -244,6 +252,10 @@
 				FD94C8D117B736C40031E60E /* WSUser.m */,
 				FDDD1E1B17B5FB2300D198AD /* WSUserDetails.h */,
 				FDDD1E1C17B5FB2300D198AD /* WSUserDetails.m */,
+				FD403F5417C77BE40042EFC1 /* WSMessage.h */,
+				FD403F5517C77BE40042EFC1 /* WSMessage.m */,
+				FD403F5717C77E1A0042EFC1 /* WSMessageParticipant.h */,
+				FD403F5817C77E1A0042EFC1 /* WSMessageParticipant.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -395,8 +407,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDDD1E3317B6002500D198AD /* WSAPIClient+Feedback.m in Sources */,
+				FD403F5617C77BE40042EFC1 /* WSMessage.m in Sources */,
 				FDDD1E2D17B5FE0000D198AD /* WSAPIClient+Login.m in Sources */,
 				FDDD1E2917B5FB6F00D198AD /* WSFeedbackSubmission.m in Sources */,
+				FD403F5917C77E1A0042EFC1 /* WSMessageParticipant.m in Sources */,
 				FDDD1E3517B6002500D198AD /* WSAPIClient+User.m in Sources */,
 				FDDD1E1D17B5FB2300D198AD /* WSUserDetails.m in Sources */,
 				FDDD1DF517B5E31700D198AD /* WSAPIClient.m in Sources */,
@@ -415,7 +429,9 @@
 				FDDD1E3F17B6288B00D198AD /* WSAPIClient+Message.m in Sources */,
 				FDDD1E3E17B6288800D198AD /* WSAPIClient+Feedback.m in Sources */,
 				FDDD1E3B17B6284300D198AD /* WSHTTPClient.m in Sources */,
+				FD403F5B17C7817B0042EFC1 /* WSMessage.m in Sources */,
 				FDDD1E2E17B5FE0000D198AD /* WSAPIClient+Login.m in Sources */,
+				FD403F5A17C781770042EFC1 /* WSMessageParticipant.m in Sources */,
 				FD94C8D317B73AD50031E60E /* WSUser.m in Sources */,
 				FDDD1E2A17B5FB6F00D198AD /* WSFeedbackSubmission.m in Sources */,
 				FDDD1E3D17B6288400D198AD /* WSAPIClient+User.m in Sources */,

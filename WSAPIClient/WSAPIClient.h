@@ -28,7 +28,8 @@ extern NSString * const WSAPIClientErrorDomain;
 typedef NS_ENUM(NSInteger, WSAPIClientErrorCode) {
     WSAPIClientErrorCodeUnexpectedFormat = 1001,
     WSAPIClientErrorCodeSessionDataMissing = 1002,
-    WSAPIClientErrorCodeNoRecipients = 1003
+    WSAPIClientErrorCodeNoRecipients = 1003,
+    WSAPIClientErrorCodeActionUnsucessful = 1004
 };
 
 @interface WSAPIClient : NSObject
@@ -108,7 +109,7 @@ typedef NS_ENUM(NSInteger, WSAPIClientErrorCode) {
 /**
  Replay to a message in a thread.
  */
-- (void)replyToMessageInThreadId:(NSInteger)messageThreadId message:(NSString *)message completionHandler:(void (^)(NSError *errorOrNil))completionHandler;
+- (void)replyToMessageWithThreadId:(NSInteger)messageThreadId message:(NSString *)message completionHandler:(void (^)(NSError *errorOrNil))completionHandler;
 
 /**
  Fetch an array of WSMessage objects for the currenly logged on user.
@@ -118,11 +119,11 @@ typedef NS_ENUM(NSInteger, WSAPIClientErrorCode) {
 /**
  Fetch an array of WSMessage objects for a specific message thread.
  */
-- (void)getMessagesInThreadWithId:(NSInteger)messageThreadId completionHandler:(void (^)(NSArray *messages, NSError *errorOrNil))completionHandler;
+- (void)getMessagesWithThreadWithId:(NSInteger)messageThreadId completionHandler:(void (^)(NSArray *messages, NSError *errorOrNil))completionHandler;
 
 /**
  Change the read status for a message thread.
  */
-- (void)setMessageThreadReadStatus:(WSMessageThreadStatus)messageThreadStatus forMessageThreadId:(NSInteger)messageThreadId completionHandler:(void (^)(NSError *errorOrNil))completionHandler;
+- (void)setMessageThreadReadStatus:(WSMessageThreadStatus)messageThreadStatus forThreadId:(NSInteger)messageThreadId completionHandler:(void (^)(NSError *errorOrNil))completionHandler;
 
 @end

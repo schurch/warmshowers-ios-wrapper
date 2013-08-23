@@ -8,8 +8,10 @@
 
 #import "WSAPIClient.h"
 
-#import "WSAPIClient+Private.h"
+#import "WSMessage.h"
 #import "WSHTTPClient.h"
+
+#import "WSAPIClient+Private.h"
 
 @implementation WSAPIClient (Message)
 
@@ -45,30 +47,83 @@
 #ifdef DEBUG
         NSLog(@"Service response: %@", responseObject);
 #endif
-        completionHandler(nil);
+        if ([responseObject count] == 1 && [responseObject[0] integerValue] == 1) {
+            completionHandler(nil);
+        }
+        else {
+            completionHandler([self errorWithCode:WSAPIClientErrorCodeActionUnsucessful reason:@"There was an error sending the message."]);
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         completionHandler(error);
     }];
 }
 
-- (void)replyToMessageInThreadId:(NSInteger)messageThreadId message:(NSString *)message completionHandler:(void (^)(NSError *errorOrNil))completionHandler
+- (void)replyToMessageWithThreadId:(NSInteger)messageThreadId message:(NSString *)message completionHandler:(void (^)(NSError *errorOrNil))completionHandler
 {
+    NSDictionary *postParamters = @{ @"thread_id": [NSNumber numberWithInt:messageThreadId],
+                                     @"body": message };
     
+    [self.client postPath:@"/services/rest/message/reply" parameters:postParamters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+#ifdef DEBUG
+        NSLog(@"Service response: %@", responseObject);
+#endif
+        if ([responseObject count] == 1 && [responseObject[0] integerValue] == 1) {
+            completionHandler(nil);
+        }
+        else {
+            completionHandler([self errorWithCode:WSAPIClientErrorCodeActionUnsucessful reason:@"There was an error replying to the message."]);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completionHandler(error);
+    }];
 }
 
 - (void)getAllMessagesWithCompletionHandler:(void (^)(NSArray *messages, NSError *errorOrNil))completionHandler
 {
-    
+    [self.client postPath:@"/services/rest/message/get" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+#ifdef DEBUG
+        NSLog(@"Service response: %@", responseObject);
+#endif
+        if ([responseObject isKindOfClass:[NSArray class]]) {
+            NSMutableArray *messages = [[NSMutableArray alloc] init];
+            [responseObject enumerateObjectsUsingBlock:^(NSDictionary *messageData, NSUInteger idx, BOOL *stop) {
+                WSMessage *message = [[WSMessage alloc] initWithDictionary:messageData];
+                [messages addObject:message];
+            }];
+            
+            completionHandler(messages, nil);
+        }
+        else {
+            completionHandler(nil, [self unexpectedFormatReponseError]);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completionHandler(nil, error);
+    }];
 }
 
-- (void)getMessagesInThreadWithId:(NSInteger)messageThreadId completionHandler:(void (^)(NSArray *messages, NSError *errorOrNil))completionHandler
+- (void)getMessagesWithThreadWithId:(NSInteger)messageThreadId completionHandler:(void (^)(NSArray *messages, NSError *errorOrNil))completionHandler
 {
     
 }
 
-- (void)setMessageThreadReadStatus:(WSMessageThreadStatus)messageThreadStatus forMessageThreadId:(NSInteger)messageThreadId completionHandler:(void (^)(NSError *errorOrNil))completionHandler
+- (void)setMessageThreadReadStatus:(WSMessageThreadStatus)messageThreadStatus forThreadId:(NSInteger)messageThreadId completionHandler:(void (^)(NSError *errorOrNil))completionHandler
 {
+    NSDictionary *postParamters = @{ @"thread_id": [NSNumber numberWithInt:messageThreadId],
+                                     @"status": messageThreadStatus == WSMessageThreadStatusRead ? @0 : @1 };
     
+    [self.client postPath:@"/services/rest/message/markThreadRead" parameters:postParamters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+#ifdef DEBUG
+        NSLog(@"Service response: %@", responseObject);
+#endif
+        if ([responseObject count] == 1 && [responseObject[0] integerValue] == 1) {
+            completionHandler(nil);
+        }
+        else {
+            completionHandler([self errorWithCode:WSAPIClientErrorCodeActionUnsucessful reason:@"There was an error chaning the message status."]);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completionHandler(error);
+    }];
 }
 
 @end
