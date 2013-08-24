@@ -181,16 +181,28 @@
 - (void)testGetAllMessages
 {
     [[WSAPIClient sharedInstance] loginWithUsername:USERNAME password:PASSWORD completionHandler:^(WSUserDetails *user, NSError *errorOrNil) {
-        [[WSAPIClient sharedInstance] getAllMessagesWithCompletionHandler:^(NSArray *messages, NSError *errorOrNil) {
-            XCTAssertNil(errorOrNil, @"There was an error fetching all the messages: %@", errorOrNil.localizedDescription);
+        [[WSAPIClient sharedInstance] getAllMessageThreadsWithCompletionHandler:^(NSArray *messageThreadSummaries, NSError *errorOrNil) {
+            XCTAssertNil(errorOrNil, @"There was an error fetching all the message threads: %@", errorOrNil.localizedDescription);
             
-            XCTAssertTrue([messages count] > 0, @"No message objects were returned.");
-            if ([messages count] > 0) {
-                XCTAssertTrue([messages[0] isKindOfClass:[WSMessage class]], @"Array does not contain WSMessage objects.");
+            XCTAssertTrue([messageThreadSummaries count] > 0, @"No message objects were returned.");
+            if ([messageThreadSummaries count] > 0) {
+                XCTAssertTrue([messageThreadSummaries[0] isKindOfClass:[WSMessageThreadSummary class]], @"Array does not contain WSMessageThreadSummary objects.");
             }
             
             dispatch_semaphore_signal(self.semaphore);
             
+        }];
+    }];
+}
+
+- (void)testGetMessageThread
+{
+    [[WSAPIClient sharedInstance] loginWithUsername:USERNAME password:PASSWORD completionHandler:^(WSUserDetails *user, NSError *errorOrNil) {
+        [[WSAPIClient sharedInstance] getMessageThreadWithId:50857 completionHandler:^(WSMessageThread *messageThread, NSError *errorOrNil) {
+            XCTAssertNil(errorOrNil, @"There was an error fetching the message thread: %@", errorOrNil.localizedDescription);
+            XCTAssertNotNil(messageThread, @"no message thread object was returned.");
+            
+            dispatch_semaphore_signal(self.semaphore);
         }];
     }];
 }

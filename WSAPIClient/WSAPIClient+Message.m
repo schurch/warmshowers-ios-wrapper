@@ -8,7 +8,8 @@
 
 #import "WSAPIClient.h"
 
-#import "WSMessage.h"
+#import "WSMessageThread.h"
+#import "WSMessageThreadSummary.h"
 #import "WSHTTPClient.h"
 
 #import "WSAPIClient+Private.h"
@@ -78,7 +79,7 @@
     }];
 }
 
-- (void)getAllMessagesWithCompletionHandler:(void (^)(NSArray *messages, NSError *errorOrNil))completionHandler
+- (void)getAllMessageThreadsWithCompletionHandler:(void (^)(NSArray *messageThreadSummaries, NSError *errorOrNil))completionHandler
 {
     [self.client postPath:@"/services/rest/message/get" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
 #ifdef DEBUG
@@ -87,7 +88,7 @@
         if ([responseObject isKindOfClass:[NSArray class]]) {
             NSMutableArray *messages = [[NSMutableArray alloc] init];
             [responseObject enumerateObjectsUsingBlock:^(NSDictionary *messageData, NSUInteger idx, BOOL *stop) {
-                WSMessage *message = [[WSMessage alloc] initWithDictionary:messageData];
+                WSMessageThreadSummary *message = [[WSMessageThreadSummary alloc] initWithDictionary:messageData];
                 [messages addObject:message];
             }];
             
@@ -101,9 +102,19 @@
     }];
 }
 
-- (void)getMessagesWithThreadWithId:(NSInteger)messageThreadId completionHandler:(void (^)(NSArray *messages, NSError *errorOrNil))completionHandler
+- (void)getMessageThreadWithId:(NSInteger)messageThreadId completionHandler:(void (^)(WSMessageThread *messageThread, NSError *errorOrNil))completionHandler
 {
+    NSDictionary *postParamters = @{ @"thread_id": [NSNumber numberWithInt:messageThreadId] };
     
+    [self.client postPath:@"/services/rest/message/getThread" parameters:postParamters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+#ifdef DEBUG
+        NSLog(@"Service response: %@", responseObject);
+#endif
+        WSMessageThread *messageThread = [[WSMessageThread alloc] initWithDictionary:responseObject];
+        completionHandler(messageThread, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completionHandler(nil, error);
+    }];
 }
 
 - (void)setMessageThreadReadStatus:(WSMessageThreadStatus)messageThreadStatus forThreadId:(NSInteger)messageThreadId completionHandler:(void (^)(NSError *errorOrNil))completionHandler

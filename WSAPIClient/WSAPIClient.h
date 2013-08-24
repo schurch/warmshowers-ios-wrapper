@@ -13,6 +13,7 @@
 @class WSHTTPClient;
 @class WSFeedbackSubmission;
 @class WSLocation;
+@class WSMessageThread;
 @class WSUserDetails;
 
 // Base URL used for all requests
@@ -107,19 +108,19 @@ typedef NS_ENUM(NSInteger, WSAPIClientErrorCode) {
 - (void)sendMessageToRecipients:(NSArray *)recipients subject:(NSString *)subject message:(NSString *)message completionHandler:(void (^)(NSError *errorOrNil))completionHandler;
 
 /**
- Replay to a message in a thread.
+ Replay to a messages in a thread.
  */
 - (void)replyToMessageWithThreadId:(NSInteger)messageThreadId message:(NSString *)message completionHandler:(void (^)(NSError *errorOrNil))completionHandler;
 
 /**
- Fetch an array of WSMessage objects for the currenly logged on user.
+ Fetch an array of WSMessageThreadSummary objects for the currenly logged on user.
  */
-- (void)getAllMessagesWithCompletionHandler:(void (^)(NSArray *messages, NSError *errorOrNil))completionHandler;
+- (void)getAllMessageThreadsWithCompletionHandler:(void (^)(NSArray *messageThreadSummaries, NSError *errorOrNil))completionHandler;
 
 /**
- Fetch an array of WSMessage objects for a specific message thread.
+ Fetch a specific message thread.
  */
-- (void)getMessagesWithThreadWithId:(NSInteger)messageThreadId completionHandler:(void (^)(NSArray *messages, NSError *errorOrNil))completionHandler;
+- (void)getMessageThreadWithId:(NSInteger)messageThreadId completionHandler:(void (^)(WSMessageThread *messageThread, NSError *errorOrNil))completionHandler;
 
 /**
  Change the read status for a message thread.

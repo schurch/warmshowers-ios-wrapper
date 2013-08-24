@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Stefan Church. All rights reserved.
 //
 
-#import "WSMessageParticipant.h"
+#import "WSMessageAuthor.h"
 
-@implementation WSMessageParticipant
+@implementation WSMessageAuthor
 
 - (id)initWithDictionary:(NSDictionary *)dictionary
 {

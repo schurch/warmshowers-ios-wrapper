@@ -17,8 +17,10 @@
 #import "WSFeedbackValue.h"
 #import "WSLocation.h"
 #import "WSMessage.h"
-#import "WSMessageParticipant.h"
+#import "WSMessageAuthor.h"
+#import "WSMessageThread.h"
 #import "WSMessageThreadStatus.h"
+#import "WSMessageThreadSummary.h"
 #import "WSUser.h"
 #import "WSUserDetails.h"
 
