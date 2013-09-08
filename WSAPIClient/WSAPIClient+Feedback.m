@@ -87,7 +87,7 @@
     NSDateComponents *dateComponents = [[NSCalendar currentCalendar] components:NSYearCalendarUnit|NSMonthCalendarUnit fromDate:feedbackSubmission.feedbackDate];
     
     
-    NSArray *username = @[@{ @"uid": @{ @"uid": @"stefanchurch" }}];
+    NSArray *username = @[@{ @"uid": @{ @"uid": feedbackSubmission.username }}];
     NSArray *date = @[@{ @"value": @{ @"year": [NSString stringWithFormat:@"%i", dateComponents.year],
                                       @"month": [NSString stringWithFormat:@"%i", dateComponents.month] }}];
     
