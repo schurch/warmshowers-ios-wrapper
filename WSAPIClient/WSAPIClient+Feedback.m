@@ -50,8 +50,8 @@
 {
     NSString *feedbackValue;
     switch (feedbackSubmission.feedbackValue) {
-        case WSFeedbackValuePostive:
-            feedbackValue = @"Postive";
+        case WSFeedbackValuePositive:
+            feedbackValue = @"Positive";
             break;
         case WSFeedbackValueNeutral:
             feedbackValue = @"Neutral";
@@ -86,15 +86,34 @@
     
     NSDateComponents *dateComponents = [[NSCalendar currentCalendar] components:NSYearCalendarUnit|NSMonthCalendarUnit fromDate:feedbackSubmission.feedbackDate];
     
-    NSDictionary *postParameters = @{ @"node[type]": @"trust_referral",
-                                      @"node[field_member_i_trust][0][uid][uid]": feedbackSubmission.username,
-                                      @"node[field_rating][value]": feedbackValue,
-                                      @"node[body]": feedbackSubmission.feedbackText,
-                                      @"node[field_guest_or_host][value]": userTypeValue,
-                                      @"node[field_hosting_date][0][value][year]": [NSString stringWithFormat:@"%i", dateComponents.year],
-                                      @"node[field_hosting_date][0][value][month]": [NSString stringWithFormat:@"%i", dateComponents.month] };
     
-    [self.client postPath:@"/services/rest/node" parameters:postParameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSArray *username = @[@{ @"uid": @{ @"uid": @"stefanchurch" }}];
+    NSArray *date = @[@{ @"value": @{ @"year": [NSString stringWithFormat:@"%i", dateComponents.year],
+                                      @"month": [NSString stringWithFormat:@"%i", dateComponents.month] }}];
+    
+    NSDictionary *postDataDictionary = @{ @"type": @"trust_referral",
+                                          @"field_rating": @{ @"value": feedbackValue },
+                                          @"body": feedbackSubmission.feedbackText,
+                                          @"field_guest_or_host": @{ @"value": userTypeValue },
+                                          @"field_member_i_trust": username,
+                                          @"field_hosting_date": date };
+    NSError *error;
+    NSData *postBody = [NSJSONSerialization dataWithJSONObject:postDataDictionary options:NSJSONWritingPrettyPrinted error:&error];
+    
+    if (error) {
+        completionHandler(error);
+        return;
+    }
+    
+#ifdef DEBUG
+    NSString *requestJson = [[NSString alloc] initWithBytes:[postBody bytes] length:[postBody length] encoding:NSUTF8StringEncoding];
+    NSLog(@"Request JSON: %@", requestJson);
+#endif
+    
+    NSMutableURLRequest *request = [self.client requestWithMethod:@"POST" path:@"/services/rest/node" parameters:nil];
+    [request setHTTPBody:postBody];
+    
+    AFHTTPRequestOperation *operation = [self.client HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {
 #ifdef DEBUG
         NSLog(@"Service response: %@", responseObject);
 #endif
@@ -102,6 +121,8 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         completionHandler(error);
     }];
+    
+    [self.client enqueueHTTPRequestOperation:operation];
 }
 
 @end

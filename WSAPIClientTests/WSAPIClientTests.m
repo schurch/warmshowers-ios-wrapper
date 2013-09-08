@@ -116,18 +116,23 @@
     }];
 }
 
-#warning Feedback submission is always returning a 401 error
-//- (void)testSubmitFeedback
-//{
-//    [[WSAPIClient sharedInstance] loginWithUsername:USERNAME password:PASSWORD completionHandler:^(WSUserDetails *user, NSError *errorOrNil) {
-//        WSFeedbackSubmission *feedbackSubmission = [[WSFeedbackSubmission alloc] init];
-//       [[WSAPIClient sharedInstance] submitFeedback:feedbackSubmission completionHandler:^(NSError *errorOrNil) {
-//           XCTAssertNil(errorOrNil, @"An error was returned when submitting feedback: %@", errorOrNil.localizedDescription);
-//           
-//           dispatch_semaphore_signal(self.semaphore);
-//       }];
-//    }];
-//}
+- (void)testSubmitFeedback
+{
+    [[WSAPIClient sharedInstance] loginWithUsername:USERNAME password:PASSWORD completionHandler:^(WSUserDetails *user, NSError *errorOrNil) {
+        WSFeedbackSubmission *feedbackSubmission = [[WSFeedbackSubmission alloc] init];
+        feedbackSubmission.username = @"stefanchurch";
+        feedbackSubmission.feedbackText = @"Neutral, other, aye. This is some more feedback for this user. Yup, yup, yup.";
+        feedbackSubmission.feedbackDate = [NSDate date];
+        feedbackSubmission.feedbackUserType = WSFeedbackUserTypeOther;
+        feedbackSubmission.feedbackValue = WSFeedbackValueNeutral;
+        
+       [[WSAPIClient sharedInstance] submitFeedback:feedbackSubmission completionHandler:^(NSError *errorOrNil) {
+           XCTAssertNil(errorOrNil, @"An error was returned when submitting feedback: %@", errorOrNil.localizedDescription);
+           
+           dispatch_semaphore_signal(self.semaphore);
+       }];
+    }];
+}
 
 #pragma mark - Messages
 
@@ -170,7 +175,7 @@
 - (void)testMessageReadStatus
 {
     [[WSAPIClient sharedInstance] loginWithUsername:USERNAME password:PASSWORD completionHandler:^(WSUserDetails *user, NSError *errorOrNil) {
-        [[WSAPIClient sharedInstance] setMessageThreadReadStatus:WSMessageThreadStatusRead forThreadId:50855 completionHandler:^(NSError *errorOrNil) {
+        [[WSAPIClient sharedInstance] setMessageThreadReadStatus:WSMessageThreadStatusRead forThreadId:50859 completionHandler:^(NSError *errorOrNil) {
             XCTAssertNil(errorOrNil, @"An error was returned when changing the message read status: %@", errorOrNil.localizedDescription);
             
             dispatch_semaphore_signal(self.semaphore);
@@ -178,7 +183,7 @@
     }];
 }
 
-- (void)testGetAllMessages
+- (void)testGetAllMessageThreads
 {
     [[WSAPIClient sharedInstance] loginWithUsername:USERNAME password:PASSWORD completionHandler:^(WSUserDetails *user, NSError *errorOrNil) {
         [[WSAPIClient sharedInstance] getAllMessageThreadsWithCompletionHandler:^(NSArray *messageThreadSummaries, NSError *errorOrNil) {

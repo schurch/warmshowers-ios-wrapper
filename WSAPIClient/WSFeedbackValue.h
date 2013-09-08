@@ -10,7 +10,7 @@
 #define _WSAPIClient_WSFeedbackValue_
 
 typedef NS_ENUM(NSInteger, WSFeedbackValue) {
-    WSFeedbackValuePostive,
+    WSFeedbackValuePositive,
     WSFeedbackValueNeutral,
     WSFeedbackValueNegative
 };

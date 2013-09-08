@@ -27,6 +27,10 @@
 
 - (NSMutableURLRequest *)requestWithMethod:(NSString *)method path:(NSString *)path parameters:(NSDictionary *)parameters
 {
+    if (!parameters) {
+        parameters = @{};
+    }
+    
     NSMutableURLRequest *request = [super requestWithMethod:method path:path parameters:parameters];
     
     NSString *sessionId = [SSKeychain passwordForService:[[NSBundle bundleForClass:[self class]] bundleIdentifier] account:KEYCHAIN_SESSION_ID_KEY];

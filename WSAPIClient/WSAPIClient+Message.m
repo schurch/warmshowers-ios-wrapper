@@ -130,7 +130,7 @@
             completionHandler(nil);
         }
         else {
-            completionHandler([self errorWithCode:WSAPIClientErrorCodeActionUnsucessful reason:@"There was an error chaning the message status."]);
+            completionHandler([self errorWithCode:WSAPIClientErrorCodeActionUnsucessful reason:@"There was an error changing the message status."]);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         completionHandler(error);
