@@ -10,7 +10,8 @@ Installation
 
 1. Copy the WSAPIClient/ directory into your XCode project. 
 2. Include AFNetworking (v 1.3.2) and SSKeychain (v 1.2.0) in your project.
-3. Import the *WSAPI.h* file wherever you want to use the Wrapper, or in the .pch file to use it throughout your project.
+3. Link with the CoreLocation.framework library.
+4. Import the *WSAPI.h* file wherever you want to use the Wrapper, or in the .pch file to use it throughout your project.
 
 AFNetworking can be downloaded from 
 [https://github.com/AFNetworking/AFNetworking/tree/1.3.2](https://github.com/AFNetworking/AFNetworking/tree/1.3.2). 
