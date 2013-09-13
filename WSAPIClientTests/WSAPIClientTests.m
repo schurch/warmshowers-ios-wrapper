@@ -121,7 +121,7 @@
     [[WSAPIClient sharedInstance] loginWithUsername:USERNAME password:PASSWORD completionHandler:^(WSUserDetails *user, NSError *errorOrNil) {
         WSFeedbackSubmission *feedbackSubmission = [[WSFeedbackSubmission alloc] init];
         feedbackSubmission.username = @"stefanchurch";
-        feedbackSubmission.feedbackText = @"Neutral, other, aye. This is some more feedback for this user. Yup, yup, yup.";
+        feedbackSubmission.feedbackText = @"Neutral, other, aye. This is some more feedback for this user. Yup, yup, yup. Testing.";
         feedbackSubmission.feedbackDate = [NSDate date];
         feedbackSubmission.feedbackUserType = WSFeedbackUserTypeOther;
         feedbackSubmission.feedbackValue = WSFeedbackValueNeutral;

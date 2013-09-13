@@ -18,6 +18,8 @@
 
 - (void)searchForUsersInLocation:(WSLocation *)location completionHandler:(void (^)(NSArray *users, NSError *error))completionHandler
 {
+    NSAssert(location != nil, @"Location information is required to search for users.");
+    
     NSDictionary *postParamters = @{ @"minlat": [NSString stringWithFormat:@"%f", location.minimumCoordinateForBoundingArea.latitude],
                                      @"maxlat": [NSString stringWithFormat:@"%f", location.maximumCoordinateForBoundingArea.latitude],
                                      @"minlon": [NSString stringWithFormat:@"%f", location.minimumCoordinateForBoundingArea.longitude],

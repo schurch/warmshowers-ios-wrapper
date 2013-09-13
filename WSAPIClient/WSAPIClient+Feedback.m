@@ -48,6 +48,20 @@
 
 - (void)submitFeedback:(WSFeedbackSubmission *)feedbackSubmission completionHandler:(void (^)(NSError *errorOrNil))completionHandler
 {
+    NSAssert(feedbackSubmission != nil, @"Feedback information is required to submit feedback.");
+    
+    if ([feedbackSubmission.username length] == 0) {
+        completionHandler([self errorWithCode:WSAPICLientErrorCodeUsernameRequired reason:@"A username is required."]);
+        return;
+    }
+    
+    if ([feedbackSubmission.feedbackText length] == 0) {
+        completionHandler([self errorWithCode:WSAPIClientErrorCodeFeedbackMessageEmpty reason:@"A message is required."]);
+        return;
+    }
+    
+    NSAssert(feedbackSubmission.feedbackDate != nil, @"A date is required to submit feedback.");
+    
     NSString *feedbackValue;
     switch (feedbackSubmission.feedbackValue) {
         case WSFeedbackValuePositive:
@@ -60,7 +74,6 @@
             feedbackValue = @"Negative";
             break;
         default:
-            
             NSLog(@"Unrecognized feedback type.");
             break;
     }
@@ -86,34 +99,18 @@
     
     NSDateComponents *dateComponents = [[NSCalendar currentCalendar] components:NSYearCalendarUnit|NSMonthCalendarUnit fromDate:feedbackSubmission.feedbackDate];
     
-    
     NSArray *username = @[@{ @"uid": @{ @"uid": feedbackSubmission.username }}];
     NSArray *date = @[@{ @"value": @{ @"year": [NSString stringWithFormat:@"%i", dateComponents.year],
                                       @"month": [NSString stringWithFormat:@"%i", dateComponents.month] }}];
     
-    NSDictionary *postDataDictionary = @{ @"type": @"trust_referral",
-                                          @"field_rating": @{ @"value": feedbackValue },
-                                          @"body": feedbackSubmission.feedbackText,
-                                          @"field_guest_or_host": @{ @"value": userTypeValue },
-                                          @"field_member_i_trust": username,
-                                          @"field_hosting_date": date };
-    NSError *error;
-    NSData *postBody = [NSJSONSerialization dataWithJSONObject:postDataDictionary options:NSJSONWritingPrettyPrinted error:&error];
+    NSDictionary *postParamters = @{ @"type": @"trust_referral",
+                                     @"field_rating": @{ @"value": feedbackValue },
+                                     @"body": feedbackSubmission.feedbackText,
+                                     @"field_guest_or_host": @{ @"value": userTypeValue },
+                                     @"field_member_i_trust": username,
+                                     @"field_hosting_date": date };
     
-    if (error) {
-        completionHandler(error);
-        return;
-    }
-    
-#ifdef DEBUG
-    NSString *requestJson = [[NSString alloc] initWithBytes:[postBody bytes] length:[postBody length] encoding:NSUTF8StringEncoding];
-    NSLog(@"Request JSON: %@", requestJson);
-#endif
-    
-    NSMutableURLRequest *request = [self.client requestWithMethod:@"POST" path:@"/services/rest/node" parameters:nil];
-    [request setHTTPBody:postBody];
-    
-    AFHTTPRequestOperation *operation = [self.client HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self.client postPath:@"/services/rest/node" parameters:postParamters success:^(AFHTTPRequestOperation *operation, id responseObject) {
 #ifdef DEBUG
         NSLog(@"Service response: %@", responseObject);
 #endif
@@ -121,8 +118,6 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         completionHandler(error);
     }];
-    
-    [self.client enqueueHTTPRequestOperation:operation];
 }
 
 @end

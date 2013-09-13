@@ -27,10 +27,16 @@ extern NSString * const WSAPIClientErrorDomain;
 
 // Error codes
 typedef NS_ENUM(NSInteger, WSAPIClientErrorCode) {
-    WSAPIClientErrorCodeUnexpectedFormat = 1001,
-    WSAPIClientErrorCodeSessionDataMissing = 1002,
-    WSAPIClientErrorCodeNoRecipients = 1003,
-    WSAPIClientErrorCodeActionUnsucessful = 1004
+    WSAPIClientErrorCodeUnexpectedFormat = 1,
+    WSAPIClientErrorCodeSessionDataMissing = 2,
+    WSAPIClientErrorCodeNoRecipients = 3,
+    WSAPIClientErrorCodeActionUnsucessful = 4,
+    WSAPICLientErrorCodeUsernameRequired = 5,
+    WSAPIClientErrorCodePasswordRequired = 6,
+    WSAPIClientErrorCodeNoSubject = 7,
+    WSAPIClientErrorCodeMessageEmpty = 8,
+    WSAPIClientErrorCodeFeedbackMessageEmpty = 9,
+    WSAPIClientErrorCodeFeedbackDateMissing = 10
 };
 
 @interface WSAPIClient : NSObject

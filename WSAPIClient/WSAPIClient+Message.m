@@ -38,6 +38,17 @@
 {
     if ([recipients count] == 0) {
         completionHandler([self errorWithCode:WSAPIClientErrorCodeNoRecipients reason:@"There were no recipients specified."]);
+        return;
+    }
+    
+    if ([subject length] == 0) {
+        completionHandler([self errorWithCode:WSAPIClientErrorCodeNoSubject reason:@"There was no subject specified."]);
+        return;
+    }
+    
+    if ([message length] == 0) {
+        completionHandler([self errorWithCode:WSAPIClientErrorCodeMessageEmpty reason:@"A message is required."]);
+        return;
     }
     
     NSDictionary *postParamters = @{ @"recipients": [recipients componentsJoinedByString:@","],
@@ -61,6 +72,11 @@
 
 - (void)replyToMessageWithThreadId:(NSInteger)messageThreadId message:(NSString *)message completionHandler:(void (^)(NSError *errorOrNil))completionHandler
 {
+    if ([message length] == 0) {
+        completionHandler([self errorWithCode:WSAPIClientErrorCodeMessageEmpty reason:@"A message is required."]);
+        return;
+    }
+    
     NSDictionary *postParamters = @{ @"thread_id": [NSNumber numberWithInt:messageThreadId],
                                      @"body": message };
     

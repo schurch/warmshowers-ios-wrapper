@@ -32,6 +32,16 @@
 
 - (void)loginWithUsername:(NSString *)username password:(NSString *)password completionHandler:(void (^)(WSUserDetails *user, NSError *errorOrNil))completionHandler
 {
+    if ([username length] == 0) {
+        completionHandler(nil, [self errorWithCode:WSAPICLientErrorCodeUsernameRequired reason:@"A username is requred."]);
+        return;
+    }
+    
+    if ([password length] == 0) {
+        completionHandler(nil, [self errorWithCode:WSAPIClientErrorCodePasswordRequired reason:@"A password is required."]);
+        return;
+    }
+    
     NSDictionary *postParameters = @{ @"username": username, @"password": password };
     
     [self.client postPath:@"/services/rest/user/login" parameters:postParameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -48,8 +58,7 @@
             completionHandler(user, nil);
         }
         else {
-            NSDictionary *userInfo = @{ NSLocalizedFailureReasonErrorKey: @"The login response from the web server is missing session information." };
-            completionHandler(nil, [NSError errorWithDomain:WSAPIClientErrorDomain code:WSAPIClientErrorCodeSessionDataMissing userInfo:userInfo]);
+            completionHandler(nil, [self errorWithCode:WSAPIClientErrorCodeSessionDataMissing reason:@"The login response from the web server is missing session information."]);
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
