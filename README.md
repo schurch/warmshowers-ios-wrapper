@@ -32,6 +32,19 @@ You can also configure the maximum number of results returned by the *searchForU
 
 	#define MAX_USER_RESULTS 50
 
+Example usage
+------------
+
+The following example shows how to log in and check the unread message count for the logged in user. For examples of how to make other API calls, see the *WSAPIClientTests.m file*.
+
+```objective-c
+[[WSAPIClient sharedInstance] loginWithUsername:@"stefan" password:@"password" completionHandler:^(WSUserDetails *user, NSError *errorOrNil) {
+	[[WSAPIClient sharedInstance] fetchUnreadMessageCountWithCompletionHandler:^(NSInteger count, NSError *errorOrNil) {
+		NSLog(@"Unread message count: %i", count);        
+	}];
+}];
+```
+
 Contributing
 ------------
 
