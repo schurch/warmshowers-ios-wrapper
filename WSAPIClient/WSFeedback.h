@@ -28,7 +28,7 @@
 
 #import "WSFeedbackUserType.h"
 
-@interface WSFeedback : NSObject
+@interface WSFeedback : NSObject<NSCoding>
 
 @property (nonatomic, strong) NSNumber *userId;
 @property (nonatomic, strong) NSString *fullName;

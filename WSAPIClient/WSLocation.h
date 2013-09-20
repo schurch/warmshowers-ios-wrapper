@@ -27,7 +27,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface WSLocation : NSObject
+@interface WSLocation : NSObject<NSCoding>
 
 @property (nonatomic) CLLocationCoordinate2D minimumCoordinateForBoundingArea;
 @property (nonatomic) CLLocationCoordinate2D maximumCoordinateForBoundingArea;

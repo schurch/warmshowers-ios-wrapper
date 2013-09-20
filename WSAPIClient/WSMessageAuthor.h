@@ -26,7 +26,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface WSMessageAuthor : NSObject
+@interface WSMessageAuthor : NSObject<NSCoding>
 
 @property (nonatomic) NSNumber *userId;
 @property (nonatomic, strong) NSString *username;

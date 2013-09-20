@@ -75,4 +75,72 @@
     return self;
 }
 
+#pragma mark - NSCoding
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    self = [super init];
+    if (self) {
+        self.username = [decoder decodeObjectForKey:@"username"];
+        self.email = [decoder decodeObjectForKey:@"email"];
+        self.joined = [decoder decodeObjectForKey:@"joined"];
+        self.lastLogin = [decoder decodeObjectForKey:@"lastLogin"];
+        self.additionalAddress = [decoder decodeObjectForKey:@"additionalAddress"];
+        self.homePhoneNumber = [decoder decodeObjectForKey:@"homePhoneNumber"];
+        self.mobilePhoneNumber = [decoder decodeObjectForKey:@"mobilePhoneNumber"];
+        self.workPhoneNumber = [decoder decodeObjectForKey:@"workPhoneNumber"];
+        self.faxNumber = [decoder decodeObjectForKey:@"faxNumber"];
+        self.website = [decoder decodeObjectForKey:@"website"];
+        self.preferedNotice = [decoder decodeObjectForKey:@"preferedNotice"];
+        self.nearestLargeCity = [decoder decodeObjectForKey:@"nearestLargeCity"];
+        self.nearestHotel = [decoder decodeObjectForKey:@"nearestHotel"];
+        self.nearestCampground = [decoder decodeObjectForKey:@"nearestCampground"];
+        self.nearestBikeshop = [decoder decodeObjectForKey:@"nearestBikeshop"];
+        self.languagesSpoken = [decoder decodeObjectForKey:@"languagesSpoken"];
+        self.comments = [decoder decodeObjectForKey:@"comments"];
+        self.maxGuests = [decoder decodeIntegerForKey:@"maxGuests"];
+        self.servicesAvailable = [decoder decodeBoolForKey:@"servicesAvailable"];
+        self.bedAvailable = [decoder decodeBoolForKey:@"bedAvailable"];
+        self.foodAvailable = [decoder decodeBoolForKey:@"foodAvailable"];
+        self.laundryAvailable = [decoder decodeBoolForKey:@"laundryAvailable"];
+        self.lawnSpaceAvailable = [decoder decodeBoolForKey:@"lawnSpaceAvailable"];
+        self.sagAvailable = [decoder decodeBoolForKey:@"sagAvailable"];
+        self.showerAvailable = [decoder decodeBoolForKey:@"showerAvailable"];
+        self.storageAvailable = [decoder decodeBoolForKey:@"storageAvailable"];
+        self.kitchenAvailable = [decoder decodeBoolForKey:@"kitchenAvailable"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeObject:self.username forKey:@"username"];
+    [encoder encodeObject:self.email forKey:@"email"];
+    [encoder encodeObject:self.joined forKey:@"joined"];
+    [encoder encodeObject:self.lastLogin forKey:@"lastLogin"];
+    [encoder encodeObject:self.additionalAddress forKey:@"additionalAddress"];
+    [encoder encodeObject:self.homePhoneNumber forKey:@"homePhoneNumber"];
+    [encoder encodeObject:self.mobilePhoneNumber forKey:@"mobilePhoneNumber"];
+    [encoder encodeObject:self.workPhoneNumber forKey:@"workPhoneNumber"];
+    [encoder encodeObject:self.faxNumber forKey:@"faxNumber"];
+    [encoder encodeObject:self.website forKey:@"website"];
+    [encoder encodeObject:self.preferedNotice forKey:@"preferedNotice"];
+    [encoder encodeObject:self.nearestLargeCity forKey:@"nearestLargeCity"];
+    [encoder encodeObject:self.nearestHotel forKey:@"nearestHotel"];
+    [encoder encodeObject:self.nearestCampground forKey:@"nearestCampground"];
+    [encoder encodeObject:self.nearestBikeshop forKey:@"nearestBikeshop"];
+    [encoder encodeObject:self.languagesSpoken forKey:@"languagesSpoken"];
+    [encoder encodeObject:self.comments forKey:@"comments"];
+    [encoder encodeInteger:self.maxGuests forKey:@"maxGuests"];
+    [encoder encodeBool:self.servicesAvailable forKey:@"servicesAvailable"];
+    [encoder encodeBool:self.bedAvailable forKey:@"bedAvailable"];
+    [encoder encodeBool:self.foodAvailable forKey:@"foodAvailable"];
+    [encoder encodeBool:self.laundryAvailable forKey:@"laundryAvailable"];
+    [encoder encodeBool:self.lawnSpaceAvailable forKey:@"lawnSpaceAvailable"];
+    [encoder encodeBool:self.sagAvailable forKey:@"sagAvailable"];
+    [encoder encodeBool:self.showerAvailable forKey:@"showerAvailable"];
+    [encoder encodeBool:self.storageAvailable forKey:@"storageAvailable"];
+    [encoder encodeBool:self.kitchenAvailable forKey:@"kitchenAvailable"];
+}
+
 @end

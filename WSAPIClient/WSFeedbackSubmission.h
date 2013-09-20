@@ -29,7 +29,7 @@
 #import "WSFeedbackValue.h"
 #import "WSFeedbackUserType.h"
 
-@interface WSFeedbackSubmission : NSObject
+@interface WSFeedbackSubmission : NSObject<NSCoding>
 
 @property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) NSString *feedbackText;

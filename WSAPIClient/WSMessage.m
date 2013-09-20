@@ -49,4 +49,32 @@
     return self;
 }
 
+#pragma mark - NSCoding
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    self = [super init];
+    if (self) {
+        self.messageId = [decoder decodeObjectForKey:@"messageId"];
+        self.messageThreadId = [decoder decodeObjectForKey:@"messageThreadId"];
+        self.subject = [decoder decodeObjectForKey:@"subject"];
+        self.body = [decoder decodeObjectForKey:@"body"];
+        self.author = [decoder decodeObjectForKey:@"author"];
+        self.createdAt = [decoder decodeObjectForKey:@"createdAt"];
+        self.newMessage = [decoder decodeBoolForKey:@"newMessage"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeObject:self.messageId forKey:@"messageId"];
+    [encoder encodeObject:self.messageThreadId forKey:@"messageThreadId"];
+    [encoder encodeObject:self.subject forKey:@"subject"];
+    [encoder encodeObject:self.body forKey:@"body"];
+    [encoder encodeObject:self.author forKey:@"author"];
+    [encoder encodeObject:self.createdAt forKey:@"createdAt"];
+    [encoder encodeBool:self.newMessage forKey:@"newMessage"];
+}
+
 @end

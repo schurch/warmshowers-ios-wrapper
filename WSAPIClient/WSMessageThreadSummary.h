@@ -26,7 +26,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface WSMessageThreadSummary : NSObject
+@interface WSMessageThreadSummary : NSObject<NSCoding>
 
 @property (nonatomic, strong) NSString *threadSubject;
 @property (nonatomic, strong) NSArray *participants;

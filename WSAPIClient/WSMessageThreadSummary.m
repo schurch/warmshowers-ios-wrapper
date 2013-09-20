@@ -60,4 +60,30 @@
     return self;
 }
 
+#pragma mark - NSCoding
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    self = [super init];
+    if (self) {
+        self.threadSubject = [decoder decodeObjectForKey:@"threadSubject"];
+        self.participants = [decoder decodeObjectForKey:@"participants"];
+        self.lastUpdated = [decoder decodeObjectForKey:@"lastUpdated"];
+        self.started = [decoder decodeObjectForKey:@"started"];
+        self.messageCount = [decoder decodeIntegerForKey:@"messageCount"];
+        self.threadNew = [decoder decodeBoolForKey:@"threadNew"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeObject:self.threadSubject forKey:@"threadSubject"];
+    [encoder encodeObject:self.participants forKey:@"participants"];
+    [encoder encodeObject:self.lastUpdated forKey:@"lastUpdated"];
+    [encoder encodeObject:self.started forKey:@"started"];
+    [encoder encodeInteger:self.messageCount forKey:@"messageCount"];
+    [encoder encodeBool:self.threadNew forKey:@"threadNew"];
+}
+
 @end

@@ -28,7 +28,7 @@
 
 #import "WSUser.h"
 
-@interface WSUserDetails : WSUser
+@interface WSUserDetails : WSUser<NSCoding>
 
 @property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) NSString *email;

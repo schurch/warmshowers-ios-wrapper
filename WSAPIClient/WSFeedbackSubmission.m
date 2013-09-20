@@ -17,7 +17,7 @@
 //  copies or substantial portions of the Software.
 //
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF ME_RCHANTABILITY, FITNESS
 //  FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
 //  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 //  IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
@@ -27,5 +27,29 @@
 #import "WSFeedbackSubmission.h"
 
 @implementation WSFeedbackSubmission
+
+#pragma mark - NSCoding
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    self = [super init];
+    if (self) {
+        self.username = [decoder decodeObjectForKey:@"username"];
+        self.feedbackText = [decoder decodeObjectForKey:@"feedbackText"];
+        self.feedbackDate = [decoder decodeObjectForKey:@"feedbackDate"];
+        self.feedbackUserType = [decoder decodeIntegerForKey:@"feedbackUserType"];
+        self.feedbackValue = [decoder decodeIntegerForKey:@"feedbackValue"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeObject:self.username forKey:@"username"];
+    [encoder encodeObject:self.feedbackText forKey:@"feedbackText"];
+    [encoder encodeObject:self.feedbackDate forKey:@"feedbackDate"];
+    [encoder encodeInteger:self.feedbackUserType forKey:@"feedbackUserType"];
+    [encoder encodeInteger:self.feedbackValue forKey:@"feedbackValue"];
+}
 
 @end

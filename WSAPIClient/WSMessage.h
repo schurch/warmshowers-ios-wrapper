@@ -28,7 +28,7 @@
 
 @class WSMessageAuthor;
 
-@interface WSMessage : NSObject
+@interface WSMessage : NSObject<NSCoding>
 
 @property (nonatomic, strong) NSNumber *messageId;
 @property (nonatomic, strong) NSNumber *messageThreadId;

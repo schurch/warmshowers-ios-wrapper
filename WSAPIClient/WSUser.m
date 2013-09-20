@@ -52,4 +52,42 @@
     return self;
 }
 
+#pragma mark - NScoding
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    self = [super init];
+    if (self) {
+        self.userId = [decoder decodeObjectForKey:@"userId"];
+        self.fullName = [decoder decodeObjectForKey:@"fullName"];
+        self.imagePath = [decoder decodeObjectForKey:@"imagePath"];
+        self.street = [decoder decodeObjectForKey:@"street"];
+        self.city = [decoder decodeObjectForKey:@"city"];
+        self.province = [decoder decodeObjectForKey:@"province"];
+        self.country = [decoder decodeObjectForKey:@"country"];
+        self.postcode = [decoder decodeObjectForKey:@"postcode"];
+        self.latitude = [decoder decodeFloatForKey:@"latitude"];
+        self.longitude = [decoder decodeFloatForKey:@"longitude"];
+        self.distance = [decoder decodeFloatForKey:@"distance"];
+        self.currentlyUnavailable = [decoder decodeBoolForKey:@"currentlyUnavailable"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeObject:self.userId forKey:@"userId"];
+    [encoder encodeObject:self.fullName forKey:@"fullName"];
+    [encoder encodeObject:self.imagePath forKey:@"imagePath"];
+    [encoder encodeObject:self.street forKey:@"street"];
+    [encoder encodeObject:self.city forKey:@"city"];
+    [encoder encodeObject:self.province forKey:@"province"];
+    [encoder encodeObject:self.country forKey:@"country"];
+    [encoder encodeObject:self.postcode forKey:@"postcode"];
+    [encoder encodeFloat:self.latitude forKey:@"latitude"];
+    [encoder encodeFloat:self.longitude forKey:@"longitude"];
+    [encoder encodeFloat:self.distance forKey:@"distance"];
+    [encoder encodeBool:self.currentlyUnavailable forKey:@"currentlyUnavailable"];
+}
+
 @end

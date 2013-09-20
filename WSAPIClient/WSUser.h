@@ -26,7 +26,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface WSUser : NSObject
+@interface WSUser : NSObject<NSCoding>
 
 @property (nonatomic) NSNumber *userId;
 @property (nonatomic, strong) NSString *fullName;

@@ -33,4 +33,30 @@
     return CLLocationCoordinate2DMake((self.minimumCoordinateForBoundingArea.latitude + self.maximumCoordinateForBoundingArea.latitude / 2), (self.minimumCoordinateForBoundingArea.longitude + self.maximumCoordinateForBoundingArea.longitude / 2));
 }
 
+
+#pragma mark - NSCoding
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    self = [super init];
+    if (self) {
+        CLLocationDegrees minimumLatitude = [decoder decodeDoubleForKey:@"minimumLatitude"];
+        CLLocationDegrees minimumLongitude = [decoder decodeDoubleForKey:@"minimumLongitude"];
+        self.minimumCoordinateForBoundingArea = CLLocationCoordinate2DMake(minimumLatitude, minimumLongitude);
+        
+        CLLocationDegrees maximumLatitude = [decoder decodeDoubleForKey:@"maximumLatitude"];
+        CLLocationDegrees maximumLongitude = [decoder decodeDoubleForKey:@"maximumLongitude"];
+        self.maximumCoordinateForBoundingArea = CLLocationCoordinate2DMake(maximumLatitude, maximumLongitude);
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeDouble:self.minimumCoordinateForBoundingArea.latitude forKey:@"minimumLatitude"];
+    [encoder encodeDouble:self.minimumCoordinateForBoundingArea.longitude forKey:@"minimumLongitude"];
+    [encoder encodeDouble:self.maximumCoordinateForBoundingArea.latitude forKey:@"maximumLatitude"];
+    [encoder encodeDouble:self.maximumCoordinateForBoundingArea.longitude forKey:@"maximumLongitude"];
+}
+
 @end

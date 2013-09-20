@@ -75,4 +75,32 @@
     return self;
 }
 
+#pragma mark - NSCoding
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    self = [super init];
+    if (self) {
+        self.userId = [decoder decodeObjectForKey:@"userId"];
+        self.fullName = [decoder decodeObjectForKey:@"fullName"];
+        self.username = [decoder decodeObjectForKey:@"username"];
+        self.email = [decoder decodeObjectForKey:@"email"];
+        self.feedbackDate = [decoder decodeObjectForKey:@"feedbackDate"];
+        self.feedbackText = [decoder decodeObjectForKey:@"feedbackText"];
+        self.feedbackUserStatus = [decoder decodeIntegerForKey:@"feedbackUserStatus"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeObject:self.userId forKey:@"userId"];
+    [encoder encodeObject:self.fullName forKey:@"fullName"];
+    [encoder encodeObject:self.username forKey:@"username"];
+    [encoder encodeObject:self.email forKey:@"email"];
+    [encoder encodeObject:self.feedbackDate forKey:@"feedbackDate"];
+    [encoder encodeObject:self.feedbackText forKey:@"feedbackText"];
+    [encoder encodeInteger:self.feedbackUserStatus forKey:@"feedbackUserStatus"];
+}
+
 @end
