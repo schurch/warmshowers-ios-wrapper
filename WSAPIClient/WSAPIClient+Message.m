@@ -55,17 +55,17 @@
 - (void)sendMessageToRecipients:(NSArray *)recipients subject:(NSString *)subject message:(NSString *)message completionHandler:(void (^)(NSError *errorOrNil))completionHandler
 {
     if ([recipients count] == 0) {
-        completionHandler([self errorWithCode:WSAPIClientErrorCodeNoRecipients reason:@"There were no recipients specified."]);
+        completionHandler([self errorWithCode:WSAPIClientErrorCodeNoRecipients reason:NSLocalizedString(@"There were no recipients specified.", nil)]);
         return;
     }
     
     if ([subject length] == 0) {
-        completionHandler([self errorWithCode:WSAPIClientErrorCodeNoSubject reason:@"There was no subject specified."]);
+        completionHandler([self errorWithCode:WSAPIClientErrorCodeNoSubject reason:NSLocalizedString(@"There was no subject specified.", nil)]);
         return;
     }
     
     if ([message length] == 0) {
-        completionHandler([self errorWithCode:WSAPIClientErrorCodeMessageEmpty reason:@"A message is required."]);
+        completionHandler([self errorWithCode:WSAPIClientErrorCodeMessageEmpty reason:NSLocalizedString(@"A message is required.", nil)]);
         return;
     }
     
@@ -81,7 +81,7 @@
             completionHandler(nil);
         }
         else {
-            completionHandler([self errorWithCode:WSAPIClientErrorCodeActionUnsucessful reason:@"There was an error sending the message."]);
+            completionHandler([self errorWithCode:WSAPIClientErrorCodeActionUnsucessful reason:NSLocalizedString(@"There was an error sending the message.", nil)]);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         completionHandler(error);
@@ -91,7 +91,7 @@
 - (void)replyToMessageWithThreadId:(NSInteger)messageThreadId message:(NSString *)message completionHandler:(void (^)(NSError *errorOrNil))completionHandler
 {
     if ([message length] == 0) {
-        completionHandler([self errorWithCode:WSAPIClientErrorCodeMessageEmpty reason:@"A message is required."]);
+        completionHandler([self errorWithCode:WSAPIClientErrorCodeMessageEmpty reason:NSLocalizedString(@"A message is required.", nil)]);
         return;
     }
     
@@ -106,7 +106,7 @@
             completionHandler(nil);
         }
         else {
-            completionHandler([self errorWithCode:WSAPIClientErrorCodeActionUnsucessful reason:@"There was an error replying to the message."]);
+            completionHandler([self errorWithCode:WSAPIClientErrorCodeActionUnsucessful reason:NSLocalizedString(@"There was an error replying to the message.", nil)]);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         completionHandler(error);
@@ -164,7 +164,7 @@
             completionHandler(nil);
         }
         else {
-            completionHandler([self errorWithCode:WSAPIClientErrorCodeActionUnsucessful reason:@"There was an error changing the message status."]);
+            completionHandler([self errorWithCode:WSAPIClientErrorCodeActionUnsucessful reason:NSLocalizedString(@"There was an error changing the message status.", nil)]);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         completionHandler(error);

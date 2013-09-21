@@ -63,7 +63,7 @@ NSString * const WSAPIClientErrorDomain = @"WSAPIClientErrorDomain";
 
 - (NSError *)unexpectedFormatReponseError
 {
-    return [self errorWithCode:WSAPIClientErrorCodeUnexpectedFormat reason:@"The response from the web server was in an unexpected format."];
+    return [self errorWithCode:WSAPIClientErrorCodeUnexpectedFormat reason:NSLocalizedString(@"The response from the web server was in an unexpected format.", nil)];
 }
 
 @end

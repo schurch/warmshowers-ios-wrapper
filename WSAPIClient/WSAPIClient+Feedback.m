@@ -69,12 +69,12 @@
     NSAssert(feedbackSubmission != nil, @"Feedback information is required to submit feedback.");
     
     if ([feedbackSubmission.username length] == 0) {
-        completionHandler([self errorWithCode:WSAPICLientErrorCodeUsernameRequired reason:@"A username is required."]);
+        completionHandler([self errorWithCode:WSAPICLientErrorCodeUsernameRequired reason:NSLocalizedString(@"A username is required.", nil)]);
         return;
     }
     
     if ([feedbackSubmission.feedbackText length] == 0) {
-        completionHandler([self errorWithCode:WSAPIClientErrorCodeFeedbackMessageEmpty reason:@"A message is required."]);
+        completionHandler([self errorWithCode:WSAPIClientErrorCodeFeedbackMessageEmpty reason:NSLocalizedString(@"A message is required.", nil)]);
         return;
     }
     

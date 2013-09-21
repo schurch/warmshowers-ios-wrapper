@@ -51,12 +51,12 @@
 - (void)loginWithUsername:(NSString *)username password:(NSString *)password completionHandler:(void (^)(WSUserDetails *user, NSError *errorOrNil))completionHandler
 {
     if ([username length] == 0) {
-        completionHandler(nil, [self errorWithCode:WSAPICLientErrorCodeUsernameRequired reason:@"A username is requred."]);
+        completionHandler(nil, [self errorWithCode:WSAPICLientErrorCodeUsernameRequired reason:NSLocalizedString(@"A username is requred.", nil)]);
         return;
     }
     
     if ([password length] == 0) {
-        completionHandler(nil, [self errorWithCode:WSAPIClientErrorCodePasswordRequired reason:@"A password is required."]);
+        completionHandler(nil, [self errorWithCode:WSAPIClientErrorCodePasswordRequired reason:NSLocalizedString(@"A password is required.", nil)]);
         return;
     }
     
@@ -76,7 +76,7 @@
             completionHandler(user, nil);
         }
         else {
-            completionHandler(nil, [self errorWithCode:WSAPIClientErrorCodeSessionDataMissing reason:@"The login response from the web server is missing session information."]);
+            completionHandler(nil, [self errorWithCode:WSAPIClientErrorCodeSessionDataMissing reason:NSLocalizedString(@"The login response from the web server is missing session information.", nil)]);
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
