@@ -40,7 +40,7 @@ The following example shows how to log in and check the unread message count for
 ```objective-c
 [[WSAPIClient sharedInstance] loginWithUsername:@"stefan" password:@"password" completionHandler:^(WSUserDetails *user, NSError *errorOrNil) {
 	[[WSAPIClient sharedInstance] fetchUnreadMessageCountWithCompletionHandler:^(NSInteger count, NSError *errorOrNil) {
-		NSLog(@"Unread message count: %i", count);        
+		NSLog(@"Unread message count: %d", count);        
 	}];
 }];
 ```
